@@ -1,0 +1,65 @@
+html,
+body{
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*
+  USGS Template
+  USGS Template
+  USGS Template
+*/
+#usgscolorband{
+  background-color: #10152C;
+}
+
+#usgsidentifier a img{
+  height: 60px;
+  width: auto;
+  margin-top: 4px;
+}
+
+#usgsccsa{
+  line-height: 4px;
+  box-sizing: border-box;
+  padding-top: 3px;
+}
+#usgsccsa a{
+  font-size: 12px !important;
+  box-sizing: border-box;
+  padding: 0px 0;
+  letter-spacing: 0.75px;
+  font-weight: 600 !important;
+  display: block;
+}
+
+/*
+  Geoplatform Template
+  Geoplatform Template
+  Geoplatform Template
+*/
+.geoplatform-header{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 40px 20px 40px;
+  background-color: #10152C;
+}
+.geoplatform-header a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+.geoplatform-header a img{
+  height: 20px;
+  position: relative;
+  top: 2px;
+  width: auto;
+}

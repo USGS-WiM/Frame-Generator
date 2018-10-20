@@ -1,0 +1,231 @@
+/* 
+Css for Geonarrative Generator itself
+Not for templates
+ */
+
+ body,
+ html{
+     margin: 0;
+     padding: 0;
+     font-family: 'Poppins', sans-serif;
+ }
+
+
+ /* Body Wrapper */
+ #generatorBody{
+     display: block;
+     width: 95%;
+     max-width: 800px;
+     margin: 0 auto;
+     color: #050821;
+ }
+
+ /* General and universal styles for elements used multiple times */
+ #generatorBody h1{
+     font-size: 24px;
+     font-weight: 700;
+     letter-spacing: -0.2px;
+     margin: 0;
+     padding: 0;
+ }
+ #generatorBody p{
+     font-size: 14px;
+     font-weight: 500;
+     letter-spacing: -0.1px;
+     color: rgba(10,20,40,0.75);
+     padding: 12px 0;
+     margin: 0;
+ }
+ #generatorBody hr{
+     border: none;
+     border-top: 1px dashed rgba(10,20,40,0.5);
+     margin: 25px 0;
+ }
+ #generatorBody a{
+    color: #0F8AFF;
+ }
+ #generatorBody a:hover{
+     cursor: pointer;
+     color: #0070DB;
+ }
+
+
+ /* Form */
+ #generatorForm  label{
+     box-sizing: border-box;
+     padding: 12px 0 2px 0;
+     display: block;
+     font-size: 14px;
+     font-weight: 500;
+ }
+ #generatorForm label em{
+     font-weight: bolder;
+     color: #FF0B40;
+     font-style: normal;
+ }
+ #generatorForm  input{
+     width: 100%;
+     background-color: rgba(10,10,30,0.035);
+     border: none;
+     font-size: 20px;
+     box-sizing: border-box;
+     color: #050821;
+     padding: 8px;
+     letter-spacing: -0.2px;
+     transition: 0.12s;
+     font-family: 'Poppins', sans-serif;
+     font-family: monospace;
+     border-radius: 3px;
+     border-bottom: 2px solid rgba(10,20,40,0.111);
+     margin-bottom: 1px;
+ }
+ #generatorForm  input:focus{
+     border-bottom: 2px solid #0F8AFF;
+     transition: 0.12s;
+
+ }
+#generatorForm *:active,
+#generatorForm *:focus{
+    outline: none;
+}
+#generatorForm  small{
+    margin-bottom: 12px;
+    display: block;
+    font-size: 11px;
+    color: rgba(10,10,30,0.4);
+}
+#generatorForm  select{
+    width: 100%;
+    color: rgba(5,8,33,0.9);
+    font-size: 20px;
+    background-color: rgba(10,10,30,0.035);
+    height: 40px;
+    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-bottom: 2px solid rgba(10,20,40,0.111);
+}
+
+#generatorFormButtons{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+#generatorForm  button{
+    display: block;
+    width: 160px;
+    color: white;
+    background-color: #0F8AFF;
+    transition: 0.12s;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 12px;
+}
+#generatorForm  button:hover{
+    transition: 0.12s;
+    cursor: pointer;
+    background-color: #0070DB;
+}
+
+
+
+ /* Header with WIM Logo */
+ header#main{
+     display: block;
+     width: 100%;
+     box-sizing: border-box;
+     padding: 55px 0;
+ }
+
+ header#main img{
+     display: block;
+     height: auto;
+     width: 220px;
+     max-width: 100%;
+ }
+
+
+ /* Footer */
+ #generatorFooter{
+    text-align: center;
+    font-size: 11px;
+    color: rgba(5,8,33,0.5);
+    margin-bottom: 25px;
+    margin-top: 35px;
+ }
+
+
+
+ /* Form Error */
+ #generatorError{
+     text-align: center;
+     width: 100%;
+     padding: 12px;
+     box-sizing: border-box;
+     width: 100%;
+     margin: 0 auto;
+     background-color: #FF0B40;
+     color: white;
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     font-size: 14px;
+     font-weight: 600;
+     letter-spacing: 0.2px;
+     display: none;
+ }
+
+ .textArea{
+     background-color: blue;
+ }
+
+ #generatorFinished{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     width: 100vw;
+     height: 100vh;
+     background-color: white;
+     position: fixed;
+     top: 0;
+     left: 0;
+     box-sizing: border-box;
+     padding-bottom: 15px;
+     display: none;
+ }
+
+ #generatorFinished h1{
+     max-width: 800px;
+     margin: 0 auto;
+     font-size: 42px;
+     letter-spacing: -2px;
+     font-weight: 800;
+ } 
+ #generatorFinished p{
+     max-width: 300px;
+     margin: 0 auto;
+     font-size: 16px;
+     margin-top: 10px;
+ }
+ #generatorFinished p small{
+     padding-top: 10px;
+     display: block;
+     opacity: 0.6;
+ }
+ #generatorFinished a{
+    display: block;
+    text-align: center;
+    padding-top: 35px;
+    margin: 0 auto;
+    width: auto;
+ }
+ #generatorFinished a img{
+     margin: 0 auto;
+     width: 60px;
+     height: auto;
+ }

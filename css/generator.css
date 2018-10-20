@@ -92,7 +92,12 @@ Not for templates
     margin-bottom: 12px;
     display: block;
     font-size: 11px;
+    padding-top: 2px;
     color: rgba(10,10,30,0.4);
+}
+#generatorForm  small a{
+    display: inline-block;
+    padding: 0 5px 0 0;
 }
 #generatorForm  select{
     width: 100%;

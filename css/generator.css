@@ -234,3 +234,9 @@ Not for templates
      width: 60px;
      height: auto;
  }
+ #generatedOutput{
+     display: block;
+     height: 0px;
+     width: 0px;
+     opacity: 0;
+ }

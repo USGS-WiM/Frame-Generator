@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
   <head>
 		<meta charset="utf-8">
         <meta name="theme-color" content="#0F8AFF">
@@ -108,6 +108,11 @@
       </div>
 
 
+      <textarea id="generatedOutput">
+
+      </textarea>
+
+
 
 
       <!-- Template HTML -->
@@ -115,9 +120,8 @@
       <!-- Template HTML -->
       <!-- Templates to Download -->
       <div id="template" style="display: none;">
-          <html>
-            <head>
-              <meta charset="utf-8">
+            <div id="templateHead">
+                <meta charset="utf-8">
                   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
                   <title id="metaTitle">Geonarrative</title>
                   <meta name="author" content="Mitch Samuels">
@@ -126,86 +130,12 @@
                   <meta name="metaRevised" content="20181022">
                   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
                   <link id="favicon" rel="shortcut icon" type="image/png" href="favicon.png" />
-        
-                  <style>
-                      body,html{
-                          padding: 0;
-                          margin: 0;
-                          font-family: 'Source Sans Pro',sans-serif;
-                      }
-                      #gnWrapper{
-                          display: flex;
-                          flex-direction: column;
-                          height: 100vh;
-                      }
-                      #gnHeader{
-                          box-sizing: border-box;
-                          padding: 6px 25px 4px 25px;
-                          display: flex;
-                      }
-                      .brand-usgs #gnHeader{
-                          border-bottom: 2px solid #001830;
-                          background-color: #00264c;
-                      }
-                      .brand-geoplatform #gnHeader{
-                          border-bottom: 2px solid black;
-                          background-color: #10162B;
-                          height: 55px;
-                      }
-                      #usgsLogo{
-                          display: block;
-                          height: 50px;
-                          width: auto;
-                          margin-bottom: 8px;
-                      }
-                      #geoplatformLogo{
-                          display: block;
-                          height: 30px;
-                          width: auto;
-                          margin-top: 2px;
-                      }
-                      #geoplatformTitle{
-                      color: white;
-                      font-size: 16px;
-                      display: flex;
-                      letter-spacing: 0.5px;
-                      flex-direction: column;
-                      justify-content: center;
-                      line-height: 16px;
-                      padding-left: 10px;
-                      font-weight: 500;
-                      }
-                      #geonarrativeFrame{
-                          flex-grow: 4;
-                      }
-                      #gnFooter{
-                          box-sizing: border-box;
-                          padding: 2px 25px 4px 25px;
-                          color: white;
-                      }
-                      .brand-usgs #gnFooter{
-                          border-top: 2px solid #001830;
-                          background-color: #00264c;
-                      }
-                      .brand-geoplatform #gnFooter{
-                          border-top: 2px solid black;
-                          background-color: #10162B;
-                      }
-                      #gnFooter a{
-                          font-size: 12px;
-                          color: white;
-                          text-decoration: none;
-                          padding-right: 8px;
-                          letter-spacing: -0.1px;
-                          display: inline-block;
-                      }
-          
-                  </style>
-        
+                  <link rel="stylesheet" href="https://wim.usgs.gov/geonarrative/generator/css/geonarrative.css">
+
                   <script id="gaCode"></script>
         
-              </head>
-              <body>
+            </div>
+            <div id="templateBody">
         
                   <div id="gnWrapper" class="brand-usgs">
         
@@ -213,13 +143,13 @@
                       <!-- For USGS -->
                       <div id="gnHeader" class="for-usgs">
                           <a href="https://usgs.gov" target="_blank" alt="USGS - science for a changing world" title="U.S. Geological Survey Home Page">
-                              <img src="https://wim.usgs.gov/geonarrative/assets/usgslogo.png" id="usgsLogo" alt="USGS - science for a changing world" title="U.S. Geological Survey Logo"/>
+                              <img src="https://wim.usgs.gov/geonarrative/generator/assets/usgslogo.png" id="usgsLogo" alt="USGS - science for a changing world" title="U.S. Geological Survey Logo"/>
                           </a>
                       </div>
                       <!-- For Geoplatform -->
                       <div id="gnHeader" class="for-geoplatform">
                           <a href="https://geoplatform.gov" target="_blank" alt="Geoplatform - Geospatial Platform" title="Geoplatform Home Page">
-                              <img src="https://wim.usgs.gov/geonarrative/assets/geoplatform-logo.jpg" id="geoplatformLogo" alt="Geoplatform - Geospatial Platform" title="Geoplatform Logo"/>
+                              <img src="https://wim.usgs.gov/geonarrative/generator/assets/geoplatform-logo.jpg" id="geoplatformLogo" alt="Geoplatform - Geospatial Platform" title="Geoplatform Logo"/>
                           </a>
                           <span id="geoplatformTitle">Geoplatform</span>
                       </div>
@@ -268,8 +198,6 @@
           
           
                   </div>
-              </body>
-          </html>
         </div>
     </body>
 
@@ -287,10 +215,6 @@
 
 
         function download(){
-          $("#generatorFinished").show().css('display', 'flex');
-
-        }
-        function downloads(){
           var geonarrativeTitle = $("#geonarrativeTitle").val();
           var geonarrativeDescription = $("#geonarrativeDescription").val();
           var geonarrativeTemplate = $("#geonarrativeTemplate").val();
@@ -334,7 +258,7 @@
               // Remove Geoplatform Elements
               $(".for-geoplatform").remove();
               $("#gnWrapper").addClass("brand-usgs");
-              $("#favicon").attr("href","https://wim.usgs.gov/geonarrative/assets/usgs-favicon.ico");
+              $("#favicon").attr("href","https://wim.usgs.gov/geonarrative/generator/assets/usgs-favicon.ico");
               document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#00264c');
               downloadInnerHtml('template','text/html');
             }else if(geonarrativeTemplate == 'geoplatform'){
@@ -342,7 +266,7 @@
               // Remove Geoplatform Elements
               $(".for-usgs").remove();
               $("#gnWrapper").addClass("brand-geoplatform");
-              $("#favicon").attr("href","https://wim.usgs.gov/geonarrative/assets/geoplatform-favicon.ico");
+              $("#favicon").attr("href","https://wim.usgs.gov/geonarrative/generator/assets/geoplatform-favicon.ico");
               document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#10162B');
               downloadInnerHtml('template','text/html');
             }else{
@@ -352,14 +276,33 @@
         }
   
   
+        function destroyClickedElement(event) {
+            // remove the link from the DOM
+            document.body.removeChild(event.target);
+        }
+
         function downloadInnerHtml(elId, mimeType) {
-          var elHtml = document.getElementById(elId).innerHTML;
-          var link = document.createElement('a');
-          mimeType = mimeType || 'text/html';
-          link.setAttribute('download', 'index.html');
-          link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
-          link.click();
-          $("#generatorFinished").show().css('display', 'flex');
+            $("#generatorFinished").css("display","flex");
+            // Output to Textarea first
+            $("#generatedOutput").val("<html lang='en'><head>");
+            $("#generatedOutput").val($("#generatedOutput").val() + $("#templateHead").html());
+            $("#generatedOutput").val($("#generatedOutput").val() + "</head><body>");
+            $("#generatedOutput").val($("#generatedOutput").val() + $("#templateBody").html());
+            $("#generatedOutput").val($("#generatedOutput").val() + "</body></html>");
+
+            // Take Textarea output and write to file.
+            var textToWrite = document.getElementById("generatedOutput").value;
+            var textFileAsBlob = new Blob([textToWrite], { type: 'text/html' });
+            var fileNameToSaveAs = "index.html";
+            var downloadLink = document.createElement("a");
+            downloadLink.download = fileNameToSaveAs;
+            downloadLink.innerHTML = "Download";
+            window.URL = window.URL || window.webkitURL;
+            downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+            downloadLink.onclick = destroyClickedElement;
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
         }
   
   

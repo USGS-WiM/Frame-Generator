@@ -37,9 +37,6 @@
 
 
         <h1>Geonarrative Generator</h1>
-        <p>
-            To generate a geonarrative HTML file, fill out the information below and choose a template.
-        </p>
 
         <hr/>
 
@@ -53,18 +50,20 @@
             <!-- Browser/tab title -->
             <label>Meta Description</label>
             <input type="text" placeholder="USGS uses innovative tool to identify sources of mercury pollution in the Great Lakes..." id="geonarrativeDescription"/>
-            <small>This is the description displayed on search engines.</small>
+            <small>This is the short description displayed on search engines.</small>
     
             <!-- Template Choice -->
             <label>Template<em>*</em></label>
             <select id="geonarrativeTemplate">
               <option value="usgs">USGS</option>
               <option value="geoplatform">GeoPlatform</option>
+              <option value="nps">NPS</option>
             </select>
-            <small>Choose which branding/logo and color scheme template you would like to use.
+            <small>Choose which logo and color scheme template you would like to use.
                 <br/>
                 <a href="templates/usgs.html" target="_blank">Preview USGS Template</a>
                 <a href="templates/geoplatform.html" target="_blank">Preview Geoplatform Template</a>
+                <a href="templates/nps.html" target="_blank">Preview NPS Template</a>
             </small>
     
             <!-- Storymaps URL -->
@@ -153,6 +152,13 @@
                           </a>
                           <span id="geoplatformTitle">Geoplatform</span>
                       </div>
+                      <!-- For NPS -->
+                      <div id="gnHeader" class="for-nps">
+                          <a href="https://nps.gov" target="_blank" alt="National Park Service" title="National Park Service Home Page">
+                              <img src="https://wim.usgs.gov/geonarrative/generator/assets/nps-logo.jpg" id="npsLogo" alt="NPS Logo" title="NPS Logo"/>
+                          </a>
+                          <span id="geoplatformTitle">National Park Service</span>
+                      </div>
           
                       <!-- Actual Geonarrative iFrame -->
                       <iframe width="100%" height="100%" id="geonarrativeFrame" src="https://usgs.maps.arcgis.com/apps/MapJournal/index.html?appid=2320e50936c946a4a3a7be6ce28d56e6" frameborder="0" scrolling="yes"></iframe>
@@ -194,6 +200,22 @@
                               <a href="https://www.geoplatform.gov/news/">News</a>
                               <a href="https://gira.geoplatform.gov/">GIRA- <font size="2">Geospatial Interoperability Reference Architecture</font></a>
                           </div>
+                      </div>
+                      <!-- NPS -->
+                      <div id="gnFooter" class="for-nps">
+							<div class="footer-row">
+								<a href="//www.nps.gov/aboutus/accessibility.htm" id="anch_25">Accessibility</a>
+								<a href="//www.nps.gov/aboutus/privacy.htm" id="anch_26">Privacy Policy</a>
+								<a href="//www.nps.gov/aboutus/foia/index.htm " id="anch_27">FOIA</a>
+								<a href="//www.nps.gov/aboutus/notices.htm" id="anch_28">Notices</a>
+								<a href="//www.nps.gov/aboutus/disclaimer.htm" id="anch_29">Disclaimer</a>
+							</div>
+							<div class="footer-row">
+								<a href="//www.nps.gov/aboutus/faqs.htm" id="anch_30">FAQ</a>
+								<a href="//www.doi.gov/pmb/eeo/no-fear-act" id="anch_31">No Fear Act</a>
+								<a href="//www.nps.gov/aboutus/contactus.htm" id="anch_32">Contact Us</a>
+								<a href="//www.usa.gov" id="anch_33">USA.gov</a>
+							</div>
                       </div>
           
           
@@ -255,21 +277,38 @@
   
             // Else download selected
             if(geonarrativeTemplate == 'usgs'){
-              // Remove Geoplatform Elements
+
+              // Remove other theme Elements
               $(".for-geoplatform").remove();
+              $(".for-nps").remove();
+
               $("#gnWrapper").addClass("brand-usgs");
               $("#favicon").attr("href","https://wim.usgs.gov/geonarrative/generator/assets/usgs-favicon.ico");
               document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#00264c');
               downloadInnerHtml('template','text/html');
             }else if(geonarrativeTemplate == 'geoplatform'){
   
-              // Remove Geoplatform Elements
+              // Remove other theme Elements
               $(".for-usgs").remove();
+              $(".for-nps").remove();
+
               $("#gnWrapper").addClass("brand-geoplatform");
               $("#favicon").attr("href","https://wim.usgs.gov/geonarrative/generator/assets/geoplatform-favicon.ico");
               document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#10162B');
               downloadInnerHtml('template','text/html');
-            }else{
+
+			// Else if NPS
+            }else if(geonarrativeTemplate == 'nps'){
+				
+				// Remove other theme Elements
+				$(".for-usgs").remove();
+				$(".for-geoplatform").remove();
+
+				$("#gnWrapper").addClass("branding-default");
+				$("#favicon").attr("href","https://wim.usgs.gov/geonarrative/generator/assets/nps-favicon.ico");
+				document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#000000');
+				downloadInnerHtml('template','text/html');
+			}else{
                 return;
             }
           }

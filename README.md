@@ -1,9 +1,9 @@
 ![WiM](wimlogo.png)
 
 
-# Geonarratives (+ Generator)
+# Geonarratives Templates & Generator
 
-This project contains the WIM-Branded and Geoplatform-branded geonarratives/storymap templates as well as the generator for those templates.
+This project contains the USGS-Branded, Geoplatform-branded, and NPS-branded geonarrative/storymap templates as well as a simple webapp form to generate storymaps - located at https://wim.usgs.gov/geonarrative/generator
 
 ### Prerequisites
 

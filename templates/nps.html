@@ -1,83 +1,64 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-        <meta name="theme-color" content="#10152C">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<!--
-Change Page title (what is displayed on browser tab)
--->
-        <title id="storyMapTitle">Mercury Geonarrative</title>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title id="metaTitle">NPS Template</title>
+	<meta name="author" content="">
+	<meta name="description" id="metaDescription" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
-<!--
-Meta Content optional but recommended
--->
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="publisher" content="U.S. Geological Survey">
-        <meta name="created" content="20160622">
-        <meta name="revised" content="20181022">
-
-        <link rel="stylesheet" href="https://wim.usgs.gov/geonarrative/generator/css/generator.css">
-        <!-- <link id="nps_favicon" rel="shortcut icon" type="image/ico" href="https://wim.usgs.gov/geonarrative/generator/assets/nps-favicon.ico" /> -->
-        <link id="nps_favicon" rel="shortcut icon" type="image/ico" href="../../assets/nps-favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-
-        <!-- <script>
-            (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
-
-            ga("create", "UA-61219868-1", "auto");
-            ga("send", "pageview", "MERCURYStorymap");
-        </script> -->
+	<!-- NPS Favicon -->
+	<link rel="shortcut icon" class="for-nps" href="data:image/png;base64,AAABAAEAEBAAAAEAIADrAgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAQAAAAEAgGAAAAH/P/YQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAp1JREFUOI11U1tIk2EYfr7v/3/3/zuGaYqJU5tligc6mEZEXQiV1YV10YUQREjQRRENlK4UogMIXRTRCUIIxJRA0gupIJM0kmqbmSlZwiqcznRubm7/933dNFmbPlfv6Xl4eHlfIoQAABBCAAAd5/elGw2yU5HpbomQAiaERAkJ6YwPL4VjzlN3BucBIM6TkQSjQW7KsKjO5DqAkpUY8wFoTiyuCvRcOvBSVaQyIeCNCQHln6M4uBBIU6SdvZcPtnIhxgB0/CegKpLDrCqZ74MrmR5fEGeyLNh6sgmxyDKkNAMAQA8t1urhpdrx/nZfigAhZBZAnkYJfDGGgUAERRBQN2SCx6KQNTNk1QwejUDN2KzHeTQeMM4DANA5F8IC45ABTHbdQND7FWpGLmSTDdGAHxNd1xCe+zmbIsAFPszrHCZKIIPg+4qOLccvIKvqKFTbJihGG9KLq1FU7wTnwpuyRJ1xXecCQS5gkQgiXGDqRXvYMjXqz951JH3G9Wph8WNvDgBEdTaS4iAc1R9RzlmeQYbQrPwHo1gpraUme3nuxMAzo7WgMievvnleUIXHGPet7i7xkLqdh0ZGlyPym9CyVibTaIFE8jdKkpkLDkoo0kxWqEaz+1hLZ8WahxQKBr5ZuNhBADrFBP2k81CDSkzvYvzzH1WzOiQtWOzzPknk0MTkFxNXPTo3hAUK/Vw4jCZb1uMII9OKVlLoqGTluYUTp+++vbmuQNP9IbddovcMBGg8cQ7Pb/eju60H2/K3U7dr0P7FNdiHJJDkZwKAi2erX0vFe/bXVOzFjH8Gnkk3TNOjfW0Ph+viM+s+EwDYJXLFNTb89JZnKBsAqhQ6XirThrVm13QAAC2NNYdnubiuAUwjpK71wdDvxH6c9xdknyMfmgFt8gAAAABJRU5ErkJggg=="/>
 
 
-      <style>
-		  body,html{
-				padding: 0;
-				margin: 0;
-				font-family: 'Source Sans Pro',sans-serif;
-			}
-			#gnWrapper{
-				display: flex;
-				flex-direction: column;
-				height: 100vh;
-			}
-			#gnHeader{
-				box-sizing: border-box;
-				padding: 6px 25px 4px 25px;
-				display: flex;
-			}
-			.brand-usgs #gnHeader{
-				border-bottom: 2px solid #001830;
-				background-color: #00264c;
-			}
-			.branding-default #gnHeader{
-				border-bottom: 2px solid black;
-				background-color: #000000;
-				height: 55px;
-			}
-			#usgsLogo{
-				display: block;
-				height: 50px;
-				width: auto;
-				margin-bottom: 8px;
-			}
-			#geoplatformLogo{
-				display: block;
-				height: 30px;
-				width: auto;
-				margin-top: 2px;
-			}
-			#npsLogo{
-				display: block;
-				height: 30px;
-				width: auto;
-				margin-top: 2px;
-			}
-			#templateHeaderTitle{
+	<script id="gaCode"></script>
+
+	<style>
+
+		body,html{
+			padding: 0;
+			margin: 0;
+			font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+		#gnWrapper{
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+		}
+		#gnHeader{
+			box-sizing: border-box;
+			padding: 6px 25px 6px 25px;
+			display: flex;
+		}
+
+		/* Theme colors for header */
+		.brand-usgs{
+			border-bottom: 2px solid #001830;
+			border-top: 2px solid #001830;
+			background-color: #00264c;
+		}
+		.branding-default{
+			border-bottom: 2px solid black;
+			border-top: 2px solid black;
+			background-color: #000;
+		}
+		.brand-geoplatform{
+			border-bottom: 2px solid black;
+			border-top: 2px solid black;
+			background-color: #10162B;
+		}
+
+		#gnHeader a img{
+			height: 30px;
+			width: auto;
+			display: block;
+		}
+		/* Make USGS logo a bit */
+		.for-usgs a img{
+			height: 50px !important;
+		}
+		#headerTitle{
 			color: white;
 			font-size: 16px;
 			display: flex;
@@ -87,74 +68,66 @@ Meta Content optional but recommended
 			line-height: 16px;
 			padding-left: 10px;
 			font-weight: 500;
-}
-       #geonarrativeFrame{
+			padding-bottom: 2px;
+		}
+
+		/* iFrame for StoryMap */
+		#geonarrativeFrame{
 			flex-grow: 4;
 		}
+
+		/* Footer */
 		#gnFooter{
 			box-sizing: border-box;
 			padding: 2px 25px 4px 25px;
 			color: white;
 		}
-		.brand-usgs #gnFooter{
-			border-top: 2px solid #001830;
-			background-color: #00264c;
-		}
-		.branding-default #gnFooter{
-			border-top: 2px solid black;
-			background-color: #000000;
-		}
 		#gnFooter a{
 			font-size: 12px;
 			color: white;
 			text-decoration: none;
-			padding-right: 8px;
-			letter-spacing: -0.1px;
+			padding-right: 10px;
 			display: inline-block;
 		}
 
-      </style>
+	</style>
 
-    </head>
-    <body>
+</head>
+<body>
+<div id="templateBody">
 
-        <div id="gnWrapper" class="branding-default">
+	<div id="gnWrapper" class="branding-default">
 
-            <!-- Header -->
-            <div id="gnHeader">
-                <a href="https://nps.gov" target="_blank" alt="National Park Service home page" title="National Park Service Home Page">
-                    <img src="https://wim.usgs.gov/geonarrative/assets/nps-logo.png" id="npsLogo" alt="NPS Logo" title="NPS Logo"/>
-                </a>
-                <span id="templateHeaderTitle">National Park Service</span>
-            </div>
+		<!-- For NPS -->
+		<div id="gnHeader" class="for-nps">
+			<a href="https://nps.gov" target="_blank" alt="National Park Service" title="National Park Service Home Page">
+				<img src="data:image/png;base64,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" alt="NPS Logo" title="NPS Logo"/>
+			</a>
+			<span id="headerTitle">National Park Service</span>
+		</div>
 
-<!--
-CHANGE SRC TO LINK FOR YOUR STORYMAP
-- URL SHOULD BE SIMILAR TO https://usgs.maps.arcgis.com/apps/xxxx/index.html?appid=xxxxxxxxxxxxxxx
--->
-		    <iframe width="100%" height="100%" id="geonarrativeFrame" src="https://usgs.maps.arcgis.com/apps/MapJournal/index.html?appid=2320e50936c946a4a3a7be6ce28d56e6" frameborder="0" scrolling="yes"></iframe>
+		<!-- Actual Geonarrative iFrame -->
+		<iframe width="100%" height="100%" id="geonarrativeFrame" src="https://www.nps.gov/gis/storymaps/mapjournal/v2/index.html?appid=bb3d6e90d67a4940b48a0ec11518b403#&embed" frameborder="0" scrolling="yes"></iframe>
 
-
-            <!-- Footer -->
-            <div id="gnFooter">
-                <div class="footer-row">
-					<a href="//www.nps.gov/aboutus/accessibility.htm" id="anch_25">Accessibility</a>
-					<a href="//www.nps.gov/aboutus/privacy.htm" id="anch_26">Privacy Policy</a>
-					<a href="//www.nps.gov/aboutus/foia/index.htm " id="anch_27">FOIA</a>
-					<a href="//www.nps.gov/aboutus/notices.htm" id="anch_28">Notices</a>
-					<a href="//www.nps.gov/aboutus/disclaimer.htm" id="anch_29">Disclaimer</a>
-                </div>
-                <div class="footer-row">
-					<a href="//www.nps.gov/aboutus/faqs.htm" id="anch_30">FAQ</a>
-					<a href="//www.doi.gov/pmb/eeo/no-fear-act" id="anch_31">No Fear Act</a>
-					<a href="//www.nps.gov/aboutus/contactus.htm" id="anch_32">Contact Us</a>
-					<a href="//www.usa.gov" id="anch_33">USA.gov</a>
-                </div>
-            </div>
+		<!-- NPS -->
+		<div id="gnFooter" class="for-nps">
+			<div class="footer-row">
+				<a href="//www.nps.gov/aboutus/accessibility.htm" id="anch_25">Accessibility</a>
+				<a href="//www.nps.gov/aboutus/privacy.htm" id="anch_26">Privacy Policy</a>
+				<a href="//www.nps.gov/aboutus/foia/index.htm " id="anch_27">FOIA</a>
+				<a href="//www.nps.gov/aboutus/notices.htm" id="anch_28">Notices</a>
+				<a href="//www.nps.gov/aboutus/disclaimer.htm" id="anch_29">Disclaimer</a>
+			</div>
+			<div class="footer-row">
+				<a href="//www.nps.gov/aboutus/faqs.htm" id="anch_30">FAQ</a>
+				<a href="//www.doi.gov/pmb/eeo/no-fear-act" id="anch_31">No Fear Act</a>
+				<a href="//www.nps.gov/aboutus/contactus.htm" id="anch_32">Contact Us</a>
+				<a href="//www.usa.gov" id="anch_33">USA.gov</a>
+			</div>
+		</div>
 
 
-        </div>
-
-    </body>
-
-</html>
+	</div>
+	</div>
+	</body>
+	</html>

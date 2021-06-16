@@ -21,81 +21,94 @@ Not for templates
  }
 
  /* General and universal styles for elements used multiple times */
- #generatorBody h1{
-     font-size: 24px;
+h1{
+     font-size: 34px;
      font-weight: 700;
-     letter-spacing: -0.2px;
-     margin: 0;
-     padding: 0;
  }
- #generatorBody p{
-     font-size: 14px;
+p{
+     font-size: 16px;
+	 line-height: 22px;
      font-weight: 500;
-     letter-spacing: -0.1px;
-     color: rgba(10,20,40,0.75);
+	 color: black;
      padding: 12px 0;
-     margin: 0;
  }
- #generatorBody hr{
+ p.desc{
+	 font-weight: 400;
+	 line-height: 28px;
+ }
+hr{
      border: none;
      border-top: 1px dashed rgba(10,20,40,0.5);
      margin: 25px 0;
  }
- #generatorBody a{
+a{
     color: #0F8AFF;
  }
- #generatorBody a:hover{
+a:hover{
      cursor: pointer;
      color: #0070DB;
  }
 
 
  /* Form */
- #generatorForm  label{
+ label{
      box-sizing: border-box;
-     padding: 12px 0 8px 0;
+     padding: 24px 0 8px 0;
      display: block;
-     font-size: 16px;
-     font-weight: 600;
+     font-size: 18px;
+     font-weight: 500;
  }
- #generatorForm label em{
+ /* Asterisk */
+label em{
      font-weight: bolder;
      color: #FF0B40;
      font-style: normal;
  }
- #generatorForm  input,
- #generatorForm  select{
+ input,
+ textarea,
+ select{
      width: 100%;
      background-color: #F8F9FA;
      border: none;
      font-size: 20px;
+	 font-family: inherit;
      box-sizing: border-box;
      color: #050821;
      padding: 8px;
      letter-spacing: -0.2px;
      transition: 0.12s;
-     font-family: monospace;
      border-radius: 3px;
      border: 1px solid #EEF0F3;
      margin-bottom: 1px;
  }
- #generatorForm  input:focus{
-     border-bottom: 2px solid #0F8AFF;
-     transition: 0.12s;
 
+
+ /* Focus / Accessibility */
+ input,button,textarea,select,a{
+	outline: 2px dotted transparent;
+	outline-offset: -2px;
+	transition: outline 0.12s ease, outline-offset 0.12s ease;
  }
-#generatorForm *:active,
-#generatorForm *:focus{
-    outline: none;
-}
-#generatorForm  small{
+
+ input:focus,
+ button:focus,
+ textarea:focus,
+ select:focus,
+ a:focus{
+	 outline: 2px dotted rgba(50,50,50, 0.4) !important;
+	 outline-offset: 0px;
+	 transition: outline 0.12s ease, outline-offset 0.12s ease;
+ }
+
+
+ small{
     margin-bottom: 12px;
     display: block;
     font-size: 13px;
-    padding-top: 2px;
+    padding-top: 8px;
     color: rgba(10,10,30,0.4);
 }
-#generatorForm  small a{
+ small a{
     display: inline-block;
     padding: 0 5px 0 0;
 }
@@ -105,7 +118,7 @@ Not for templates
     justify-content: flex-end;
     margin-bottom: 25px;
 }
-#generatorForm  button{
+ button{
     display: block;
     width: 160px;
     color: white;
@@ -120,7 +133,7 @@ Not for templates
     border-radius: 3px;
     margin-top: 12px;
 }
-#generatorForm  button:hover{
+ button:hover{
     transition: 0.12s;
     cursor: pointer;
     background-color: #0070DB;
@@ -148,14 +161,12 @@ Not for templates
  /* Footer */
  #generatorFooter{
     text-align: center;
-	font-weight:600;
+	font-weight:500;
     font-size: 13px;
-    color: rgba(5,8,33,0.5);
+	color: black;
     margin-bottom: 25px;
     margin-top: 35px;
  }
-
-
 
  /* Form Error */
  #generatorError{
@@ -168,63 +179,49 @@ Not for templates
      background-color: #FF0B40;
      color: white;
      position: fixed;
-     bottom: 0;
+     top: 0;
      left: 0;
-     font-size: 16px;
+     font-size: 14px;
      font-weight: 600;
      letter-spacing: 0.2px;
      display: none;
  }
 
- .textArea{
-     background-color: blue;
- }
 
+ /* Message when download finishes */
  #generatorFinished{
      display: flex;
      flex-direction: column;
      justify-content: center;
      width: 100vw;
      height: 100vh;
-     background-color: white;
      position: fixed;
+	 background-color: rgba(0,0,50,0.5);
+	 backdrop-filter: blur(2px);
      top: 0;
      left: 0;
      box-sizing: border-box;
-     padding-bottom: 15px;
      display: none;
  }
 
- #generatorFinished h1{
-     max-width: 800px;
-     margin: 0 auto;
-     font-size: 52px;
-     letter-spacing: -2px;
-     font-weight: 800;
- } 
- #generatorFinished p{
-     max-width: 300px;
-     margin: 0 auto;
-     font-size: 18px;
-     margin-top: 10px;
+
+ #generatorFinishedBody{
+	background-color: white;
+	max-width: 420px;
+	width: 98%;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 0 20px 20px 20px;
+	border-radius: 4px;
  }
- #generatorFinished p small{
-     padding-top: 10px;
-     display: block;
-     opacity: 0.6;
- }
- #generatorFinished a{
-    display: block;
-    text-align: center;
-    padding-top: 35px;
-    margin: 0 auto;
-    width: auto;
- }
+
  #generatorFinished a img{
-     margin: 0 auto;
+     margin: 0 auto 0 auto;
      width: 60px;
      height: auto;
  }
+
+ /* Hide output */
  #generatedOutput{
      display: block;
      height: 0px;

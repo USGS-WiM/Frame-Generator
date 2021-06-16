@@ -1,7 +1,11 @@
+/* This file is no longer used */
+/* The CSS for the geonarrative templates is now embedded directly into the downloaded index.html file */
+/* This file is kept here because older storymaps made from this generator still reference this file on the WIM S3 server */
+
 body,html{
     padding: 0;
     margin: 0;
-    font-family: 'Source Sans Pro',sans-serif;
+	font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 #gnWrapper{
     display: flex;

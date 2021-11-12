@@ -14,10 +14,16 @@ Not for templates
  /* Body Wrapper */
  #generatorBody{
      display: block;
-     width: 95%;
-     max-width: 800px;
+     width: 100%;
+	 overflow: auto;
+	 height: 100%;
      margin: 0 auto;
      color: #050821;
+ }
+ #generatorContent{
+	 max-width: 800px;
+	 width: 95%;
+	 margin: 0 auto;
  }
 
  /* General and universal styles for elements used multiple times */

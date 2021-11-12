@@ -26,110 +26,113 @@
 
       <div id="generatorBody">
 
-        <!-- Header - WIM Logo -->
-        <header id="main">
-          <a href="http://wim.usgs.gov" target="_blank" alt="USGS WIM Home Page" title="USGS WIM Home Page">
-            <img src="assets/wim_logo_full_black.png" alt="Web Informatics and Mapping" title="Web Informatics and Mapping Logo"/>
-          </a>
-        </header>
+		<div id="generatorContent">
+
+			<!-- Header - WIM Logo -->
+			<header id="main">
+			<a href="http://wim.usgs.gov" target="_blank" alt="USGS WIM Home Page" title="USGS WIM Home Page">
+				<img src="assets/wim_logo_full_black.png" alt="Web Informatics and Mapping" title="Web Informatics and Mapping Logo"/>
+			</a>
+			</header>
 
 
-        <h1>Geonarrative Generator</h1>
+			<h1>Geonarrative Generator</h1>
 
-		<p class="desc">
-			This generator takes your StoryMap url, and puts it into an iFrame between a header and footer. The header will have the logo of the organization you choose as your template, and the footer will include the required links - Privacy Policy, Disciaimer, FOIA, etc.
-			<br/>
-			<br/>
-			It creates a single index.html file with no dependencies that can be uploaded to a web server. 
-		</p>
+			<p class="desc">
+				This generator takes your StoryMap url, and puts it into an iFrame between a header and footer. The header will have the logo of the organization you choose as your template, and the footer will include the required links - Privacy Policy, Disciaimer, FOIA, etc.
+				<br/>
+				<br/>
+				It creates a single index.html file with no dependencies that can be uploaded to a web server. 
+			</p>
 
-        <hr/>
+			<hr/>
 
-        <form id="generatorForm">
+			<form id="generatorForm">
 
-            <!-- Browser/tab title -->
-            <label>Browser Title<em>*</em></label>
-            <input type="text" placeholder="Great Lakes Restoration" id="geonarrativeTitle"/>
-            <small>This title will appear in the browser tab for every user.</small>
-    
-            <!-- Description -->
-            <label>Meta Description</label>
-            <textarea placeholder="USGS uses innovative tool to identify sources of mercury pollution in the Great Lakes..." id="geonarrativeDescription"></textarea>
-            <small>This is the short description displayed on search engines.</small>
-    
-            <!-- Template Choice -->
-            <label>Template<em>*</em></label>
-            <select id="geonarrativeTemplate">
-              <option value="usgs">USGS</option>
-              <option value="geoplatform">GeoPlatform</option>
-              <option value="nps">NPS</option>
-              <option value="blank">No Header/Footer</option>
-            </select>
+				<!-- Browser/tab title -->
+				<label>Browser Title<em>*</em></label>
+				<input type="text" placeholder="Great Lakes Restoration" id="geonarrativeTitle"/>
+				<small>This title will appear in the browser tab for every user.</small>
+		
+				<!-- Description -->
+				<label>Meta Description</label>
+				<textarea placeholder="USGS uses innovative tool to identify sources of mercury pollution in the Great Lakes..." id="geonarrativeDescription"></textarea>
+				<small>This is the short description displayed on search engines.</small>
+		
+				<!-- Template Choice -->
+				<label>Template<em>*</em></label>
+				<select id="geonarrativeTemplate">
+				<option value="usgs">USGS</option>
+				<option value="geoplatform">GeoPlatform</option>
+				<option value="nps">NPS</option>
+				<option value="blank">No Header/Footer</option>
+				</select>
 
-            <small>
-				Choose which logo and color scheme template you would like to use.
-            </small>
+				<small>
+					Choose which logo and color scheme template you would like to use.
+				</small>
 
-			<small>
-				<b>Preview template:</b>
-				<a href="templates/usgs.html" target="_blank">USGS</a>
-                <a href="templates/geoplatform.html" target="_blank">Geoplatform</a>
-                <a href="templates/nps.html" target="_blank">NPS</a>
-                <a href="templates/blank.html" target="_blank">No Header/Footer</a>
-            </small>
-    
-            <!-- Storymaps URL -->
-            <label>Storymaps URL<em>*</em></label>
-            <input type="text" id="storymapURL" placeholder="https://usgs.maps.arcgis.com/apps/MapJournal/index.html?appid=2320e50936c946a4a3a7be6ce28d56e6"/>
-            <small>Should look similar to <b>https://usgs.maps.arcgis.com/apps/xxxx/index.html?appid=xxxxxxxxxxxxxxx</b></small>
-    
-            <!-- Google Analytics ID -->
-            <label>Google Analytics ID</label>
-            <input type="text" id="analyticsID" placeholder="UA-XXXXXXXX-X"/>
-            <small>Optional - if you want to enable Google Analytics Tracking</small>
-    
-            <hr/>
-
-            <div id="generatorFormButtons">
-                <button type="button" onclick="download()">Download</button>
-            </div>
-
-        </form>
-
-		<!-- Footer -->
-        <footer id="generatorFooter">
-          Made by <a href="https://wim.usgs.gov" target="_blank">WIM</a>. Open source and available on <a href="https://github.com/USGS-WIM/geonarratives" target="_blank">GitHub</a>.
-        </footer>
-
-		<!-- Generic Error -->
-        <div id="generatorError" onclick="hideError()">Please make sure the URL and Title fields are not empty.</div>
-
-
-		<!-- Modal after user clicks download -->
-        <div id="generatorFinished">
-			<div id="generatorFinishedBody">
-				<h1>What's next?</h1>
-				<p>
-				  A single file (index.html) should have downloaded to your device.
-				  <br/>
-				  <br/>
-				  	You can open the file in your browser <em>(right-click > Open with Chrome)</em> to make sure everything looks good, then simply upload it to a server at the location or path you want it to be viewable at.
-					<br/>
-					<small>If the embedded Storymap is not loading, it's most likely an issue with the URL, or the permissions on ArcGIS.</small>
-				</p>
-
-				<button id="closeFinishedWindow" onclick="startOver()">Start Over</button>
-
+				<small>
+					<b>Preview template:</b>
+					<a href="templates/usgs.html" target="_blank">USGS</a>
+					<a href="templates/geoplatform.html" target="_blank">Geoplatform</a>
+					<a href="templates/nps.html" target="_blank">NPS</a>
+					<a href="templates/blank.html" target="_blank">No Header/Footer</a>
+				</small>
+		
+				<!-- Storymaps URL -->
+				<label>Storymaps URL<em>*</em></label>
+				<input type="text" id="storymapURL" placeholder="https://usgs.maps.arcgis.com/apps/MapJournal/index.html?appid=2320e50936c946a4a3a7be6ce28d56e6"/>
+				<small>Should look similar to <b>https://usgs.maps.arcgis.com/apps/xxxx/index.html?appid=xxxxxxxxxxxxxxx</b></small>
+		
+				<!-- Google Analytics ID -->
+				<label>Google Analytics ID</label>
+				<input type="text" id="analyticsID" placeholder="UA-XXXXXXXX-X"/>
+				<small>Optional - if you want to enable Google Analytics Tracking</small>
+		
 				<hr/>
 
-				<a href="http://wim.usgs.gov" target="_blank" alt="USGS WIM Home Page" title="USGS WIM Home Page">
-				  <img src="assets/wim_abbr_black.png" alt="Web Informatics and Mapping" title="Web Informatics and Mapping Logo"/>
-				</a>
+				<div id="generatorFormButtons">
+					<button type="button" onclick="download()">Download</button>
+				</div>
+
+			</form>
+
+			<!-- Footer -->
+			<footer id="generatorFooter">
+			Made by <a href="https://wim.usgs.gov" target="_blank">WIM</a>. Open source and available on <a href="https://github.com/USGS-WIM/geonarratives" target="_blank">GitHub</a>.
+			</footer>
+
+			<!-- Generic Error -->
+			<div id="generatorError" onclick="hideError()">Please make sure the URL and Title fields are not empty.</div>
+
+
+			<!-- Modal after user clicks download -->
+			<div id="generatorFinished">
+				<div id="generatorFinishedBody">
+					<h1>What's next?</h1>
+					<p>
+					A single file (index.html) should have downloaded to your device.
+					<br/>
+					<br/>
+						You can open the file in your browser <em>(right-click > Open with Chrome)</em> to make sure everything looks good, then simply upload it to a server at the location or path you want it to be viewable at.
+						<br/>
+						<small>If the embedded Storymap is not loading, it's most likely an issue with the URL, or the permissions on ArcGIS.</small>
+					</p>
+
+					<button id="closeFinishedWindow" onclick="startOver()">Start Over</button>
+
+					<hr/>
+
+					<a href="http://wim.usgs.gov" target="_blank" alt="USGS WIM Home Page" title="USGS WIM Home Page">
+					<img src="assets/wim_abbr_black.png" alt="Web Informatics and Mapping" title="Web Informatics and Mapping Logo"/>
+					</a>
+				</div>
 			</div>
-        </div>
 
 
-      </div>
+		</div>
+	</div>
 
 
 
@@ -155,7 +158,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 			
 				<!-- USGS Favicon -->
-				<link rel="shortcut icon" class="for-usge" href="data:image/png;base64,AAABAAMAMDAAAAEAGACoHAAANgAAACAgAAABAAgAqAgAAN4cAAAQEAAAAQAIAGgFAACGJQAAKAAAADAAAABgAAAAAQAYAAAAAAAAGwAAAAAAAAAAAAAAAAAAAAAAAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAGSOFHqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNWSOFFaEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJOwXPX48fX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48ZOwXFSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////z9++3y49vlyNTfvdnjxevw4fz9+5ezYlSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////b48cnYrZKvWW+VJGCLDlyICF+KDG2UIZayX36gO1WDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////3+/NPfvISlRFmFBVOBAFaDAFWDAFSCAFWDAFWDAFWCAFeEAVeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////b58q3DgmmRGnmdNKK6cbrMlb/QnrTIjZayYHCWJVeEA1aDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAI+tVfv8+P////////////////////////////////////////////////////////////////////////////////////////D06Ji0Y4OkQsrYrvb48f////////////////7+/evw4bPHi22UIVaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAF+KDJ+5bezx4f///////////////////////////////////////////////////////////////////////////////+3y5ZOwWpKvWMLSo7XIjqO7c6S8dbrMlt/nzvv8+f///////////+Do0HqdNVWDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAFaDAXicMsvZr/z8+v///////////////////////////////////////////////////////////////////+vw4YmpTWGLEHGXJlyICFSCAFSCAFSCAFaEAWSOFJWxXd/nzv///v///////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFaEAFWDAF+KDqC5buzx4v///////////////////////////////////////////////////////////+nu3YSlRFSCAF2ICWmRGm+WJWuTHl+KDFaDAVWDAFaDAFWCAGuSHrjLkvb58v///5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAGWOFWCLD1WDAFaDAFaDAXmdM8zZsPz9+v///////////////////////////////////////////////+Xs2IGiP2+WJanAfNXgv+rv3u/z5urw39jiw6/EhXicMVeEA1aDAFaDAFmGBY2sUuDo0JezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJSwXMrYrnebMFaDAFaDAFWDAGCKDqG6b+zx4v///////////////////////////////////////93mzIamRp63a9/nzezx4u3y4/X48P7+/v///////////+/z563DgmaPF1WCAFaEAFWCAG2UIW+VJFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///+rw3523aV6JDFWDAFaDAFaDAXmdNMzasvv8+f////////////////////////b48cDRn3OYKoamR5ezYXueNmyTH2uSHnicMpu2Z9PfvPv8+P////////7+/dfiwoOkQleEA1aDAFaDAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////v8+cfWqnWaLVWDAFaEAFWDAGCKDpKvWsbVqOHp0erw3+ju3drkxrfKkYKjQVqGB1WDAVmFBFOBAFOBAFOBAFSCAFWCAFSCAGCKDpm0ZOft2v////////////L166zCgGSOFVWCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFWCAIWmRvH06f///////////+nv3Zq1ZV2IClWCAFaDAFWCAFmGBGSNE2qSHWiQGWCKDVaDAVOBAGKMEYOkQqC5b6/EhKrBfZOwW3KYKVmGBVWDAFaDAFWDAHOYKsTUpvr7+P////////3+/dTgvoCiPliFAleEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFmFAoKjQdbhwP7+/f////////r7+MXVp36hO1+KDFeEAVaDAFeEAF+KDHebMG6VJGCLD5u2Z93my/v8+P////////////7+/e7z5b/QnXmdM1aDAVaDAFWDAF2ICpm0ZOju3P////////////D054SlRFWCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFWCAGWOFa3CgfL16/////////////X379jixMDRn7nLlcTUps/btaK7cXSZLK7EhMnXrLjLk7HGir/Qnt3mzPn69v///////////+3y5KO7c2GLEFWCAFaEAFWDAHSZLMbVqfv8+P///////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFaDAFaDAFeEA4KjQc3btPX37/7//v////////////T378zZsYanSFqGBm2UIm2UIVmGBFWCAFWDAFeEAWONEoqpTtHduPz9+v////////z9+87btXyfN1aDAVaDAFWDAF6JC5y2Z+rv3v///5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAG6VImyTH1WCAFaEAFWDAF6JC3ueNpi0Y6e/eqa+eJSxXXabL1uHCFKBAFiFA2ONEmyTH2uTH2GMEFeEAlWCAFaDAFSCAGGLEKK7cu3y5P///////////+7y5aS8dWGLEFWCAFaDAFaDAHaaLsnXrJOwW1SCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYd/nzYyqUFqGBlSCAFWCAFSBAFOBAFKAAFOBAFyHCFWDAl+KDY6sUsLSouHp0ezx4+vw4d3myrrMloOkQ1uHCFWDAFaDAFaDAXqeNc7btPz9+/////////z9+8/ctnyfOFaDAVaDAFWDAF+KDmSOFFaEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////b48cTUpZCtVnWaLWyUIXGXJ4WlRaG6cISkQ36gOs7btPr7+P////////////////////////b58sHRoHKYKVWDAFaEAFWDAGGLEKO8c+7y5f///////////+7y5aS8dWGLEFWCAFaDAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////39/PT37u7z5u/z59rkx5SwXJOwW+vw4P///////////////////////////////////////+bt2pezYV2IClWDAFaDAFaDAXyfN8/ctvz9+/////////z9+9Dctn2fOFaEAVaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAHKYKLzOmd7nze3x4+/z5uft2s7btZ23am+WJJ+4bPL16/////////////////////////////////////////////////r798TUpXOYKlWDAFaEAFWCAGGMEKW9de/z5v///////////+/z5qW9dmGLD1aEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFiEAmKMEW2UIW+WJGaPFlqGBHGXJsDRoPr7+P///////////////////////////////////////////////////////////+fu25i0Y12IClWDAFaDAFaEAX2gOdDduP39+/////////z9+pGuWFSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFSCAFOBAFSBAFmGBXKYKavBf+rv3v////////////////////////////////////////////////////////////////////////r798TUpXOYKlWDAFaDAFWCAGKMEaa+eO/z5////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAHWaLp64a523aa7Dg83as+/z5v7//v///////////////////////////////////////////////////////////////////////////////////+fu25m0ZF2IClWDAFaDAFeEAn6gO9Hduf3+/JezYlSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////r7+MXUpnSZK1WDAFaDAFWCAGKMEqi/eouqTlWCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+ju25q1ZF2IClWDAFaDAFiEA1uHB1eEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////r7+MXUpnSZLFWDAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+nu3Zu1Zl6JC1aDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////v8+MbVqGyUIFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ayX1SCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJOwXPX48fX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48ZOwXFSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAGSOFHqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNWSOFFaEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAgAAAAQAAAAAEACAAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAB8nzkAfZ85AODo0ABqkhwAVoMCAGyTHwCWsl8A+/z5AF6JCwCGp0gA/f38AIenSADq8N8AiahLAO7y5QB4nDEAeZ00AHqdNAC1yI4A3ebLAFSCAABVggAAapIdAFaDAwCTsFoAbJMgAFmGAwDP3LcA+Pr0AFuHBgD6+/cAXYkMAF6JDADp790Ah6dJALDFhgDr8OAAdpsvALLGiQB4nDIA2+XJANzlyQBokRsAy9mvAGmRGwBVggEAa5IeAFiFAQD2+fIA9/nyANDcuABahgQA+Pr1APn69QBbhwcAXIcHAISlRAD6+/gAXIgKAOfu2wDo7tsA6e/eAOrv3gB3mzAA2uTHAJ+5bQB4nDMAZY8WANzlygBokBkAaZEcAJKvWQD1+PAA9vjwAFiFAgCUsFwAgaM/AFqGBQCDpEIAXYgLAIWlRQDo7twArcOCAHOZKwB0mSsA6u/fAK/EhQB2mi4AnrhrANnjxQB3mzEA2+TIAMjXqwBmjxcAUoEAAGiQGgBTgQAAkK5XAJKvWgBXhAAAzdq0APb48QC8zpoAg6RDAHCXJgDm7doA5+3aAHKYKQCuw4MA6e7dAHSZLACct2kA1+LDANjiwwCdt2kAZI4VAGaPGADJ16wAZ48YAMrYrwDz9uwAV4QBAFiFBACAoj4A4+vVAIKjQQDm7NgArMKBAHGXJwCtwoEAc5gqANbhwQD+//4A///+AJ23agBijBAAxdWnAGONEwCfuG0AZI0TAMfWqgBljhYA8fXqAJCtVgDz9u0Af6E8AFiFBQCAoj8AgaI/AHCWJQDT37wAcZcoAHKXKACctmgA////AJ23awDG1agA7vPlAMjWqwCNq1EAZY4XAI6sVABSgAAAfJ83APL16wDf6M4AVYMAAH2gOgC4y5QAfqA6AFaDAABWhAMAV4QDAH+hPQDj6tQAbpUjAHCWJgCYtGMAmbRjAPz9+gDV4MAAwtOjAP7+/QCJqUwA7fLjAIuqTwDu8+YAtMiMAPD06QC1yY8A8fTpALfKkgB+oDsApr54AOHp0gBYhAQAbZQhANDduABvlSQA0t67AJezYQD6/PgAX4oNAMPTpAD+/v4AiKhKAOvx4QCKqU0AsseKAHmdMwDv8+cA3ObKAHqeNgB7njYAtsmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY0odNjY2NjY2NjY2NjY2NjY2NjY2NjY2Nh1KY2NjY2OmEGTFMjIyMjIyMjIyMjIyMjIyMjIyMjLFZBCmY2NjYxQJB5qampqampqampqampqampqampqampoHCRRjY2NjFAkHmpqampqampqampqampqampqampqamgcJFGNjY2MUCQeampqampqampqampqampqampqampqaBwkUY2NjYxQJB5qampqampqampqampqampqamsk9E66OCRRjY2NjFAkHmpqampqampqampqampqamjVct18IiakWqmNjY2MUCQeampqampqampqampqampo7mU7Im89fFKpjY2NjY6Y/apqampqampqampqampqapZm/RLoKCnxYCGNjY2NjY2NXngeampqampqampqamkDV0Wtdxktxthx9FWNjY2NjShQfbwyampqampqampq0EdRHRwEgonN/nSIUY2NjY6ZCsU8UJVwHmpqampqExwZmApDMHJYNwxdMaKpjY2NjFAsxnFRgIIZ8ycwHbWyVo5gDJ8E8mki7X2CqY2NjY2MVp46aUbI6YHZnj80uh5FHn1OSYGvLHoVbCxpjY2NjY2MzzSiFOYy5gm5nbguMaRyFpLVaFDqxO5q8ABVjY2NjY6pgKia4th4kGxjErWuvTqh4miSKymBTiDALFGNjY2OqsHsEBK/NoUyJQ1BizQUtq06DtrN3JxRPyCemY2NjYxQiDtCnGYCUgnLCHoWzPiMsXo1SeJrOQcoUL2NjY2NjFa2+mmV+dXK1B5qampqazCm3wwQ4cMyzKyd5Y2NjY2NjHQ9hGE63xbaampqampqamkgSRmCgVpCaISemY2NjY2M3i0WT1tKampqampqampqamoTTz8MXUFkeCRRjY2NjFXvCVTSampqampqampqampqamppIvUZgdIHAFWNjY2MUCQeampqampqampqampqampqampqEE896rE1jY2NjYxQJB5qampqampqampqampqampqampqaSdYWqmNjY2NjFAkHmpqampqampqampqampqampqampqahSiXpmNjY2MUCQeampqampqampqampqampqampqampqaBwkUY2NjY6YQZMUyMjIyMjIyMjIyMjIyMjIyMjIyMsVkEKZjY2NjY0odNjY2NjY2NjY2NjY2NjY2NjY2NjY2Nh1KY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjYwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAABAAAAAgAAAAAQAIAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAFuHBQB2my8AVYMAAFaDAACSr1kAoLluAMnXrQBijBAAr8WGAJm0ZADC0qMA9PfvAHabMACNrFIAd5swAKnAfACFpUUArsOEAODo0AD8/PoAcJYmAP7+/QBkjhQAcpgpAGmRHACyx4oAwNGfALfKkgDO27QA3OXJAPf58wDT3rwAXokKAJCuVgCUsV4Aep00AKO7cwD+/v4AVoQAAFeEAABulSIAl7NhAI6sVADJ2K0Aztu1AIKkQgB1mi0Aka5XAMPTowDe580AbpUjAK7EhACYs2IA7vPlAGeQGQB+oTsAp796AJGuWADn7tsAd5wxAPz9+wD9/fsAY40SAFqGBQB+oTwAVIIAAIyrUQBVggAAmrVmAHicMgCPrVQA4enSAHqeNQBkjRMAlbJfALHGiQCkvHQAm7VnANbhwADN2rMA2+TIAP///wBzmSsAs8iMAJ23agC4y5QAka9YAKS8dQDJ16wA+vz4ALLGigDW4cEAZo8XAHSZLACYtGMAy9mvAMLSogDm7dkA9PfuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnJkFBQUFBQUFBQUFBQSYnA0kiCQkJCQkJCQkJCSJJA0M7C1FRUVFRUVFRUVELO0NDOwtRUVFRUVFRUR5hRwFDQzsLUVFRUVFRJTERL0UgJgM+GllRUVFRFVg5VAZPGAMDB10pOlFRE18FVQ87NDICAlJbXkgIClchQhBgHSo/JycARltgRCMQOB9gSDROUgICKE0tVgRTYAkOGxJNLgcDAzYZS1phUVE8HEANUDAWAwNcTCtiUVFRUVE1JAwzFwJDOwtRUVFRUVFRUT0sNz8nQzsLUVFRUVFRUVFRUToUAgNJIgkJCQkJCQkJCQlKFgMnJkFBQUFBQUFBQUFBQSYnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="/>
+				<link rel="shortcut icon" class="for-usgs" href="data:image/png;base64,AAABAAMAMDAAAAEAGACoHAAANgAAACAgAAABAAgAqAgAAN4cAAAQEAAAAQAIAGgFAACGJQAAKAAAADAAAABgAAAAAQAYAAAAAAAAGwAAAAAAAAAAAAAAAAAAAAAAAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAGSOFHqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNWSOFFaEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJOwXPX48fX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48ZOwXFSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////z9++3y49vlyNTfvdnjxevw4fz9+5ezYlSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////b48cnYrZKvWW+VJGCLDlyICF+KDG2UIZayX36gO1WDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////3+/NPfvISlRFmFBVOBAFaDAFWDAFSCAFWDAFWDAFWCAFeEAVeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////b58q3DgmmRGnmdNKK6cbrMlb/QnrTIjZayYHCWJVeEA1aDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAI+tVfv8+P////////////////////////////////////////////////////////////////////////////////////////D06Ji0Y4OkQsrYrvb48f////////////////7+/evw4bPHi22UIVaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAF+KDJ+5bezx4f///////////////////////////////////////////////////////////////////////////////+3y5ZOwWpKvWMLSo7XIjqO7c6S8dbrMlt/nzvv8+f///////////+Do0HqdNVWDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAFaDAXicMsvZr/z8+v///////////////////////////////////////////////////////////////////+vw4YmpTWGLEHGXJlyICFSCAFSCAFSCAFaEAWSOFJWxXd/nzv///v///////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFaEAFWDAF+KDqC5buzx4v///////////////////////////////////////////////////////////+nu3YSlRFSCAF2ICWmRGm+WJWuTHl+KDFaDAVWDAFaDAFWCAGuSHrjLkvb58v///5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAGWOFWCLD1WDAFaDAFaDAXmdM8zZsPz9+v///////////////////////////////////////////////+Xs2IGiP2+WJanAfNXgv+rv3u/z5urw39jiw6/EhXicMVeEA1aDAFaDAFmGBY2sUuDo0JezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJSwXMrYrnebMFaDAFaDAFWDAGCKDqG6b+zx4v///////////////////////////////////////93mzIamRp63a9/nzezx4u3y4/X48P7+/v///////////+/z563DgmaPF1WCAFaEAFWCAG2UIW+VJFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///+rw3523aV6JDFWDAFaDAFaDAXmdNMzasvv8+f////////////////////////b48cDRn3OYKoamR5ezYXueNmyTH2uSHnicMpu2Z9PfvPv8+P////////7+/dfiwoOkQleEA1aDAFaDAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////v8+cfWqnWaLVWDAFaEAFWDAGCKDpKvWsbVqOHp0erw3+ju3drkxrfKkYKjQVqGB1WDAVmFBFOBAFOBAFOBAFSCAFWCAFSCAGCKDpm0ZOft2v////////////L166zCgGSOFVWCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFWCAIWmRvH06f///////////+nv3Zq1ZV2IClWCAFaDAFWCAFmGBGSNE2qSHWiQGWCKDVaDAVOBAGKMEYOkQqC5b6/EhKrBfZOwW3KYKVmGBVWDAFaDAFWDAHOYKsTUpvr7+P////////3+/dTgvoCiPliFAleEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFmFAoKjQdbhwP7+/f////////r7+MXVp36hO1+KDFeEAVaDAFeEAF+KDHebMG6VJGCLD5u2Z93my/v8+P////////////7+/e7z5b/QnXmdM1aDAVaDAFWDAF2ICpm0ZOju3P////////////D054SlRFWCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFWCAGWOFa3CgfL16/////////////X379jixMDRn7nLlcTUps/btaK7cXSZLK7EhMnXrLjLk7HGir/Qnt3mzPn69v///////////+3y5KO7c2GLEFWCAFaEAFWDAHSZLMbVqfv8+P///////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFaDAFaDAFeEA4KjQc3btPX37/7//v////////////T378zZsYanSFqGBm2UIm2UIVmGBFWCAFWDAFeEAWONEoqpTtHduPz9+v////////z9+87btXyfN1aDAVaDAFWDAF6JC5y2Z+rv3v///5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAG6VImyTH1WCAFaEAFWDAF6JC3ueNpi0Y6e/eqa+eJSxXXabL1uHCFKBAFiFA2ONEmyTH2uTH2GMEFeEAlWCAFaDAFSCAGGLEKK7cu3y5P///////////+7y5aS8dWGLEFWCAFaDAFaDAHaaLsnXrJOwW1SCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYd/nzYyqUFqGBlSCAFWCAFSBAFOBAFKAAFOBAFyHCFWDAl+KDY6sUsLSouHp0ezx4+vw4d3myrrMloOkQ1uHCFWDAFaDAFaDAXqeNc7btPz9+/////////z9+8/ctnyfOFaDAVaDAFWDAF+KDmSOFFaEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////b48cTUpZCtVnWaLWyUIXGXJ4WlRaG6cISkQ36gOs7btPr7+P////////////////////////b58sHRoHKYKVWDAFaEAFWDAGGLEKO8c+7y5f///////////+7y5aS8dWGLEFWCAFaDAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////39/PT37u7z5u/z59rkx5SwXJOwW+vw4P///////////////////////////////////////+bt2pezYV2IClWDAFaDAFaDAXyfN8/ctvz9+/////////z9+9Dctn2fOFaEAVaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAHKYKLzOmd7nze3x4+/z5uft2s7btZ23am+WJJ+4bPL16/////////////////////////////////////////////////r798TUpXOYKlWDAFaEAFWCAGGMEKW9de/z5v///////////+/z5qW9dmGLD1aEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFiEAmKMEW2UIW+WJGaPFlqGBHGXJsDRoPr7+P///////////////////////////////////////////////////////////+fu25i0Y12IClWDAFaDAFaEAX2gOdDduP39+/////////z9+pGuWFSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFSCAFOBAFSBAFmGBXKYKavBf+rv3v////////////////////////////////////////////////////////////////////////r798TUpXOYKlWDAFaDAFWCAGKMEaa+eO/z5////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAHWaLp64a523aa7Dg83as+/z5v7//v///////////////////////////////////////////////////////////////////////////////////+fu25m0ZF2IClWDAFaDAFeEAn6gO9Hduf3+/JezYlSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////r7+MXUpnSZK1WDAFaDAFWCAGKMEqi/eouqTlWCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+ju25q1ZF2IClWDAFaDAFiEA1uHB1eEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////r7+MXUpnSZLFWDAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+nu3Zu1Zl6JC1aDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////v8+MbVqGyUIFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ayX1SCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJezYf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5ezYVSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFSCAJOwXPX48fX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48PX48ZOwXFSCAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaEAGSOFHqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNXqdNWSOFFaEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFaDAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFWCAFaDAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAFeEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAgAAAAQAAAAAEACAAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAB8nzkAfZ85AODo0ABqkhwAVoMCAGyTHwCWsl8A+/z5AF6JCwCGp0gA/f38AIenSADq8N8AiahLAO7y5QB4nDEAeZ00AHqdNAC1yI4A3ebLAFSCAABVggAAapIdAFaDAwCTsFoAbJMgAFmGAwDP3LcA+Pr0AFuHBgD6+/cAXYkMAF6JDADp790Ah6dJALDFhgDr8OAAdpsvALLGiQB4nDIA2+XJANzlyQBokRsAy9mvAGmRGwBVggEAa5IeAFiFAQD2+fIA9/nyANDcuABahgQA+Pr1APn69QBbhwcAXIcHAISlRAD6+/gAXIgKAOfu2wDo7tsA6e/eAOrv3gB3mzAA2uTHAJ+5bQB4nDMAZY8WANzlygBokBkAaZEcAJKvWQD1+PAA9vjwAFiFAgCUsFwAgaM/AFqGBQCDpEIAXYgLAIWlRQDo7twArcOCAHOZKwB0mSsA6u/fAK/EhQB2mi4AnrhrANnjxQB3mzEA2+TIAMjXqwBmjxcAUoEAAGiQGgBTgQAAkK5XAJKvWgBXhAAAzdq0APb48QC8zpoAg6RDAHCXJgDm7doA5+3aAHKYKQCuw4MA6e7dAHSZLACct2kA1+LDANjiwwCdt2kAZI4VAGaPGADJ16wAZ48YAMrYrwDz9uwAV4QBAFiFBACAoj4A4+vVAIKjQQDm7NgArMKBAHGXJwCtwoEAc5gqANbhwQD+//4A///+AJ23agBijBAAxdWnAGONEwCfuG0AZI0TAMfWqgBljhYA8fXqAJCtVgDz9u0Af6E8AFiFBQCAoj8AgaI/AHCWJQDT37wAcZcoAHKXKACctmgA////AJ23awDG1agA7vPlAMjWqwCNq1EAZY4XAI6sVABSgAAAfJ83APL16wDf6M4AVYMAAH2gOgC4y5QAfqA6AFaDAABWhAMAV4QDAH+hPQDj6tQAbpUjAHCWJgCYtGMAmbRjAPz9+gDV4MAAwtOjAP7+/QCJqUwA7fLjAIuqTwDu8+YAtMiMAPD06QC1yY8A8fTpALfKkgB+oDsApr54AOHp0gBYhAQAbZQhANDduABvlSQA0t67AJezYQD6/PgAX4oNAMPTpAD+/v4AiKhKAOvx4QCKqU0AsseKAHmdMwDv8+cA3ObKAHqeNgB7njYAtsmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY0odNjY2NjY2NjY2NjY2NjY2NjY2NjY2Nh1KY2NjY2OmEGTFMjIyMjIyMjIyMjIyMjIyMjIyMjLFZBCmY2NjYxQJB5qampqampqampqampqampqampqampoHCRRjY2NjFAkHmpqampqampqampqampqampqampqamgcJFGNjY2MUCQeampqampqampqampqampqampqampqaBwkUY2NjYxQJB5qampqampqampqampqampqamsk9E66OCRRjY2NjFAkHmpqampqampqampqampqamjVct18IiakWqmNjY2MUCQeampqampqampqampqampo7mU7Im89fFKpjY2NjY6Y/apqampqampqampqampqapZm/RLoKCnxYCGNjY2NjY2NXngeampqampqampqamkDV0Wtdxktxthx9FWNjY2NjShQfbwyampqampqampq0EdRHRwEgonN/nSIUY2NjY6ZCsU8UJVwHmpqampqExwZmApDMHJYNwxdMaKpjY2NjFAsxnFRgIIZ8ycwHbWyVo5gDJ8E8mki7X2CqY2NjY2MVp46aUbI6YHZnj80uh5FHn1OSYGvLHoVbCxpjY2NjY2MzzSiFOYy5gm5nbguMaRyFpLVaFDqxO5q8ABVjY2NjY6pgKia4th4kGxjErWuvTqh4miSKymBTiDALFGNjY2OqsHsEBK/NoUyJQ1BizQUtq06DtrN3JxRPyCemY2NjYxQiDtCnGYCUgnLCHoWzPiMsXo1SeJrOQcoUL2NjY2NjFa2+mmV+dXK1B5qampqazCm3wwQ4cMyzKyd5Y2NjY2NjHQ9hGE63xbaampqampqamkgSRmCgVpCaISemY2NjY2M3i0WT1tKampqampqampqamoTTz8MXUFkeCRRjY2NjFXvCVTSampqampqampqampqamppIvUZgdIHAFWNjY2MUCQeampqampqampqampqampqampqEE896rE1jY2NjYxQJB5qampqampqampqampqampqampqaSdYWqmNjY2NjFAkHmpqampqampqampqampqampqampqahSiXpmNjY2MUCQeampqampqampqampqampqampqampqaBwkUY2NjY6YQZMUyMjIyMjIyMjIyMjIyMjIyMjIyMsVkEKZjY2NjY0odNjY2NjY2NjY2NjY2NjY2NjY2NjY2Nh1KY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjYwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAABAAAAAgAAAAAQAIAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAFuHBQB2my8AVYMAAFaDAACSr1kAoLluAMnXrQBijBAAr8WGAJm0ZADC0qMA9PfvAHabMACNrFIAd5swAKnAfACFpUUArsOEAODo0AD8/PoAcJYmAP7+/QBkjhQAcpgpAGmRHACyx4oAwNGfALfKkgDO27QA3OXJAPf58wDT3rwAXokKAJCuVgCUsV4Aep00AKO7cwD+/v4AVoQAAFeEAABulSIAl7NhAI6sVADJ2K0Aztu1AIKkQgB1mi0Aka5XAMPTowDe580AbpUjAK7EhACYs2IA7vPlAGeQGQB+oTsAp796AJGuWADn7tsAd5wxAPz9+wD9/fsAY40SAFqGBQB+oTwAVIIAAIyrUQBVggAAmrVmAHicMgCPrVQA4enSAHqeNQBkjRMAlbJfALHGiQCkvHQAm7VnANbhwADN2rMA2+TIAP///wBzmSsAs8iMAJ23agC4y5QAka9YAKS8dQDJ16wA+vz4ALLGigDW4cEAZo8XAHSZLACYtGMAy9mvAMLSogDm7dkA9PfuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnJkFBQUFBQUFBQUFBQSYnA0kiCQkJCQkJCQkJCSJJA0M7C1FRUVFRUVFRUVELO0NDOwtRUVFRUVFRUR5hRwFDQzsLUVFRUVFRJTERL0UgJgM+GllRUVFRFVg5VAZPGAMDB10pOlFRE18FVQ87NDICAlJbXkgIClchQhBgHSo/JycARltgRCMQOB9gSDROUgICKE0tVgRTYAkOGxJNLgcDAzYZS1phUVE8HEANUDAWAwNcTCtiUVFRUVE1JAwzFwJDOwtRUVFRUVFRUT0sNz8nQzsLUVFRUVFRUVFRUToUAgNJIgkJCQkJCQkJCQlKFgMnJkFBQUFBQUFBQUFBQSYnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="/>
 				<!-- Geoplatform Favicon -->
 				<link rel="shortcut icon" class="for-geoplatform" href="data:image/png;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5DggAOg8JADoRCQA6EgoAOhMKADoZDAA7GQwAPCYQADwnEABKJh4APjsWAD47FwA+QBgAP0IYAD9CGQA/QxkASJ00AEifNQBIpTYASK03AEitOABJrTgASa85AEm1OgBKtTsASrY7AEq3OwBKtzwASrg8AE+4QQBGvDkAR7w5AFG5QwBLvj4ASr89AGTBVwBkwVgAacJcAGvDXwBsw2AAbcNgAHTHaQB4yGwAeslvAOr36ADr9+kA6/fqAOz36gD4/PcA+Pz4APn9+QD6/fkA/v/+AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQkJCQkJCQkJCQkJCQkJCQQCAAAAAAAAAAAAAAAAAgQDDBkVExMTExMTExQVFgwBAw0iICMkJCQkJCQjHRwPAQMNHyktLi4uLi4vLCUaDgEDDR4rNDU1NTU1NTQnGg4BAw0eKzQ1NTU1NTU0JxoOAQMNHis0NTU1NTU1NCcaDgEDDR4rNDU1NTU1NTQnGg4BAw0eKzQ1NTU1NTU0JxoOAQMNHis1NTU1NTU1NSgaDgEDDR4qMTIyMjIyMzAmGg4BAw0hGBcXFxcXFxcXGBsOAQMKEhAQEBAQEBAQEBARCwEEBggHBwcHBwcHBwcHCAUDBAQDAwMDAwMDAwMDAwMEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="/>
 				<!-- NPS Favicon -->
@@ -170,13 +173,16 @@
 
 					body,html{
 						padding: 0;
+						overflow: hidden;
 						margin: 0;
 						font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 					}
 					#gnWrapper{
 						display: flex;
 						flex-direction: column;
-						height: 100vh;
+						overflow: hidden;
+						width: 100%;
+						height: 100%;
 					}
 					#gnHeader{
 						box-sizing: border-box;
@@ -240,6 +246,10 @@
 						text-decoration: none;
 						padding-right: 10px;
 						display: inline-block;
+					}
+
+					#geonarrativeFrame body{
+						overflow-x: hidden;
 					}
 			
 				</style>
@@ -412,6 +422,7 @@
               // Remove other theme Elements
               $(".for-usgs").remove();
               $(".for-nps").remove();
+              $(".for-blank").remove();
 
               $("#gnWrapper").addClass("brand-geoplatform");
               $("#favicon").attr("href","https://wim.usgs.gov/geonarrative/generator/assets/geoplatform-favicon.ico");

@@ -234,3 +234,23 @@ label em{
      width: 0px;
      opacity: 0;
  }
+
+
+
+ /* Checkbox */
+ .checkbox{
+	 display: flex;
+	 width: auto;
+	 justify-content: flex-start;
+	 font-size: 14px;
+ }
+ .checkbox input{
+	 display: block;
+	 width: fit-content;
+	 min-width: unset;
+	 margin: 0;
+	 position: relative;
+	 top: 2px;
+	 margin-right: 10px;
+	 transform: scale(1.2);
+ }

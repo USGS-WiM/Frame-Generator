@@ -53,19 +53,21 @@
 				<label>Browser Title<em>*</em></label>
 				<input type="text" placeholder="Great Lakes Restoration" id="geonarrativeTitle"/>
 				<small>This title will appear in the browser tab for every user.</small>
+				<br/><br/>
 		
 				<!-- Description -->
 				<label>Meta Description</label>
 				<textarea placeholder="USGS uses innovative tool to identify sources of mercury pollution in the Great Lakes..." id="geonarrativeDescription"></textarea>
 				<small>This is the short description displayed on search engines.</small>
+				<br/><br/>
 		
 				<!-- Template Choice -->
 				<label>Template<em>*</em></label>
 				<select id="geonarrativeTemplate">
-				<option value="usgs">USGS</option>
-				<option value="geoplatform">GeoPlatform</option>
-				<option value="nps">NPS</option>
-				<option value="blank">No Header/Footer</option>
+					<option value="usgs">USGS</option>
+					<option value="geoplatform">GeoPlatform</option>
+					<option value="nps">NPS</option>
+					<option value="blank">No Header/Footer</option>
 				</select>
 
 				<small>
@@ -79,11 +81,21 @@
 					<a href="templates/nps.html" target="_blank">NPS</a>
 					<a href="templates/blank.html" target="_blank">No Header/Footer</a>
 				</small>
+
+				<!-- Use default header -->
+				<div>
+					<label for="defaultHeader" class="checkbox">
+						<input type="checkbox" id="defaultHeader"/>
+						Use the esri/default top bar
+					</label>
+				</div>
+				<br/><br/>
 		
 				<!-- Storymaps URL -->
 				<label>Storymaps URL<em>*</em></label>
 				<input type="text" id="storymapURL" placeholder="https://usgs.maps.arcgis.com/apps/MapJournal/index.html?appid=2320e50936c946a4a3a7be6ce28d56e6"/>
 				<small>Should look similar to <b>https://usgs.maps.arcgis.com/apps/xxxx/index.html?appid=xxxxxxxxxxxxxxx</b></small>
+				<br/><br/>
 		
 				<!-- Google Analytics ID -->
 				<label>Google Analytics ID</label>
@@ -372,6 +384,7 @@
           var geonarrativeTemplate = $("#geonarrativeTemplate").val();
           var storymapURL = $("#storymapURL").val();
           var analyticsID = $("#analyticsID").val();
+          var useDefaultHeader = $("#defaultHeader").val();
   
           var today = new Date();
           var dd = today.getDate();
@@ -385,6 +398,19 @@
             $("#generatorError").show();
             setTimeout(function(){$("#generatorError").hide()}, 5000);
           }else{
+
+		// If Default header, remove header bars, append ?header to storymap url
+		if(useDefaultHeader){
+			console.log("Use Default Header");
+			$("div[id=gnHeader]").remove();
+
+			// Append ?header to the URL if it doesnt exist
+			if(!storymapURL.endsWith("?header")){
+				storymapURL = storymapURL + "?header"
+			}
+		}else{
+			console.log("Template Header");
+		}
   
           // Set iFrame SRC and Page Title
           var iframe = $("#geonarrativeFrame");
@@ -404,6 +430,8 @@
             }else{
               console.log("No Analytics");
             }
+  
+           
   
             // Else download selected
             if(geonarrativeTemplate == 'usgs'){
@@ -435,6 +463,7 @@
 				// Remove other theme Elements
 				$(".for-usgs").remove();
 				$(".for-geoplatform").remove();
+           	   $(".for-blank").remove();
 
 				$("#gnWrapper").addClass("branding-default");
 				$("#favicon").attr("href","https://wim.usgs.gov/geonarrative/generator/assets/nps-favicon.ico");

@@ -1,0 +1,126 @@
+//! Base  
+// Base body, html, and other global styles
+// 
+
+// Universal 
+body, html{
+	margin: 0 auto;
+	font-family: var(--sans);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100%;
+	font-size: 12px;
+	width: 100%;
+	color: var(--text);
+	height: 100%;
+	max-height: 100%;
+	background-color: var(--background);
+	@media (max-width: $screenSM) {
+		overscroll-behavior: contain;
+    }
+}
+// html
+html{
+	display: flex;
+}
+
+// 
+// Body & Body classes 
+body{
+	max-height: none;
+	box-sizing: border-box;
+	min-height: 100%;
+	flex-grow: 3;	
+}
+
+
+// Prevent scrolling when full-screen elements, like modals, are visible
+.scroll-lock{
+	background-color: var(--red) !important;
+	// pointer-events: none;
+	// overflow: visible;
+	position: fixed;
+
+	// overflow: hidden;
+	// max-height:100vh;
+}
+// Disable default browser tap highlighting, smooth text
+// Disable text selection on mobile 
+*{
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+	text-rendering: optimizeLegibility;
+}
+
+input, input:before, input:after {
+	-webkit-user-select: initial;
+	-khtml-user-select: initial;
+	-moz-user-select: initial;
+	-ms-user-select: initial;
+	user-select: initial;
+	box-shadow: none;
+}
+
+// Image - prevent drag
+img{
+	pointer-events: none;
+	user-select: none;
+}
+
+
+// Scroll bar
+::-webkit-scrollbar{
+	width: 3px;
+	height: 8px;
+}
+// Scrollbar Track
+::-webkit-scrollbar-track{
+	display: none;
+}
+// Scrollbar handle/thumb
+::-webkit-scrollbar-thumb{
+	background: var(--scrollThumb);
+	box-sizing: border-box;
+	border-radius: 4px;
+}
+// Hide scrollbars
+.no-scrollbars,
+.no-scrollbars *{
+	scrollbar-width: none;
+	// Hidden
+	&::-webkit-scrollbar{
+		width: 0px;
+		display: none;
+	}
+	// Scrollbar handle/thumb
+	&::-webkit-scrollbar-thumb{
+		display: none;
+		width: 0px;
+	}
+}
+
+
+//    Text Selection    //
+::selection {
+	background: var(--primary);
+	color: var(--background);
+}
+::-moz-selection {
+	background: var(--primary); // Gecko Brooowsers
+	color: var(--background);
+}
+
+
+// Allow user select/highlight
+.select{
+	user-select: auto;
+}
+// Select all on click
+.select-all{
+	user-select: all;
+}
+
+
+
+

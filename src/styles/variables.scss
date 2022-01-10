@@ -1,0 +1,250 @@
+//! Variables
+
+// Responsive Variables must be sass variables
+// because CSS variables can't be used in @media
+
+$screenXS: 380px;
+$screenSM: 768px;
+$screenLG: 1020px;
+$screenXL: 1400px;
+
+//  Root variables can be toggled by themes
+:root {
+
+	//* Global variables				
+	// Not specific to light theme 
+
+	// Fonts
+	--sans: 'Open Sans';
+	// --sans: var(--systemFont);
+	--serif: 'Crimson Pro', 'Lucida Bright', 'Garamond', 'Times New Roman', serif;
+	--monospace: 'Space Mono', monospace;
+	--fontAwesome: 'Font Awesome 6 Pro';
+	--fontAwesomeBrands: 'Font Awesome 6 Brands';
+	--systemFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	
+	// Transitions
+	--transition: 0.1s;
+	--bezierTransition: all 0.18s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+	--bezierTransitionSlow: all 0.28s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+
+	// Measurements
+	--maxWidthSmall: 450px;
+	--maxWidth: 700px;
+	--maxWidthLarge: 1000px;
+	// Borders
+	--borderRadius: 3px;
+	--borderRadiusLarge: 8px;
+	// Sizes
+	--inputHeight: 40px;
+	--topBarHeight: 74px;
+	@media (max-width: $screenSM) {
+		--topBarHeight: 54px;
+	}
+	--bottomBarHeight: 0px;
+	@media (max-width: $screenSM) {
+		--bottomBarHeight: 60px;
+	}
+	--sidePadding: 40px;
+	@media (max-width: $screenSM) {--sidePadding: 20px;}
+	@media (max-width: $screenSM) {--sidePadding: 10px;}
+
+
+	// Black and White
+	--black: #07070f;
+	--white: #FFFFFF;
+
+	//*  Light Theme 
+	// Background Colors
+	--background: #ffffff;
+	--layer: #FBFDFF;
+	--transparentHighlight: rgba(255,255,255,0.5);
+
+	// Main Colors
+	--primary: var(--blue);
+	--red: #FF3D49;
+	--orange: #FF5740;
+	--yellow: #ffd84f;
+	--green: #00D09B;
+	--blue: #2313FF;
+	--purple: #A83BF3;
+	--pink: #FB3ED8;
+	--grey: #EDF0F6;
+	--gray: #EDF0F6;
+		// Fade
+		--primaryFade: var(--blueFade);
+		--redFade: #FFE1E1;
+		--orangeFade: #FFEBDB;
+		--yellowFade: #FFFEE2;
+		--greenFade: #E9FFF1;
+		--blueFade: #E2EDFF;
+		--purpleFade: #F6E4FF;
+		--pinkFade: #FFE3FF;
+		--greyFade: #F1F5FA;
+		--grayFade: #F1F5FA;
+		--greyTransparent: rgba(10,10,30, 0.75);
+		--grayTransparent: rgba(10,10,30, 0.75);
+		// Light
+		--primaryLight: var(--blueLight);
+		--redLight: #FF6F78;
+		--orangeLight: #FF8972;
+		--yellowLight: #FFF269;
+		--greenLight: #14EEBA;
+		--blueLight: #5473FF;
+		--purpleLight: #DA6DFF;
+		--pinkLight: #FF83FF;
+		--greyLight: #F5F7FA;
+		--grayLight: #F5F7FA;
+		// Dark
+		--primaryDark: var(--blueDark);
+		--redDark: #D93D49;
+		--orangeDark: #E74A33;
+		--yellowDark: #f0c83e;
+		--greenDark: #00C299;
+		--blueDark: #0B02CE;
+		--purpleDark: #872BD0;
+		--pinkDark: #DA0ECB;
+		--greyDark: #E4E9F0;
+		--grayDark: #E4E9F0;
+
+
+	// Blacks, Greys, Text
+	// Text
+	--text: #00172E;
+		--textFade: rgba(0, 23, 46, 0.5);
+		--textLight: rgba(0, 23, 46, 0.65);
+	// Borders
+	--border: #2A2A50;
+		--borderFade: rgba(3, 3, 51, 0.2);
+		--borderLight: #5C5C82;
+		--borderDark: #080B21;
+
+
+	// Misc
+	--outline: rgba(46, 54, 253, 0.4);
+	--scrollThumb: var(--text);
+	// Links
+	--links: #4437f5;
+	--linksDark: #2d20d3;
+	// Active/highlight
+	--activeColor: #DDECFF;
+
+
+	// Box Shadows
+	--shaadow:
+		0px 2px 8px -4px rgba(10,10,10,0.122),
+		0px 4px 12px -7px rgba(10,10,10,0.105);
+
+
+		--shadow: 0px 2px 4px 0px rgba(30, 30, 60, 0.11);
+		--shadow-Hover: 0px 2px 20px -5px rgba(30, 30, 60, 0.15);
+		// "transparent", "grey", "blue", "green", "red", "yellow", "orange", "pink", "purple"
+		--lineShadow: var(--border) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--border) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--border) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--border) 12px 12px;
+		--lineShadow-Hover: var(--border) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--border) 4px 4px;
+		// "transparent", "grey", "blue", "green", "red", "yellow", "orange", "pink", "purple"
+		--lineShadow-Blue: var(--primary) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--primary) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--primary) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--primary) 12px 12px;
+			--lineShadow-Blue-Hover: var(--primary) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--primary) 4px 4px;
+		--lineShadow-Green: var(--green) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--green) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--green) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--green) 12px 12px;
+			--lineShadow-Green-Hover: var(--green) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--green) 4px 4px;
+		--lineShadow-Red: var(--red) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--red) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--red) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--red) 12px 12px;
+			--lineShadow-Red-Hover: var(--red) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--red) 4px 4px;
+		--lineShadow-Yellow: var(--yellow) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--yellow) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--yellow) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--yellow) 12px 12px;
+			--lineShadow-Yellow-Hover: var(--yellow) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--yellow) 4px 4px;
+		--lineShadow-Orange: var(--orange) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--orange) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--orange) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--orange) 12px 12px;
+			--lineShadow-Orange-Hover: var(--orange) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--orange) 4px 4px;
+		--lineShadow-Pink: var(--pink) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--pink) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--pink) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--pink) 12px 12px;
+			--lineShadow-Pink-Hover: var(--pink) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--pink) 4px 4px;
+		--lineShadow-Purple: var(--purple) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--purple) 4px 4px, rgb(255, 255, 255) 8px 8px 0px -2px, var(--purple) 8px 8px, rgb(255, 255, 255) 12px 12px 0px -2px, var(--purple) 12px 12px;
+			--lineShadow-Purple-Hover: var(--purple) 0px 0px 0px 2px inset, rgb(255, 255, 255) 4px 4px 0px -2px, var(--purple) 4px 4px;
+
+}
+
+
+
+// Dark Theme changes
+[data-theme="dark"] {
+
+	// Background Colors
+	--background: #07070f;
+	--layer: #1B1B23;
+	--transparentHighlight: rgba(255,255,255,0.2);
+
+	// Main Colors
+	--red: #A60000;
+	--orange: #BB2F18;
+	--yellow: #CDB01D;
+	--green: #00894B;
+	--blue: #0000A8;
+	--purple: #7609C1;
+	--pink: #C902A6;
+	--grey: #26263C;
+	--gray: #26263C;
+
+		// Fade
+		--redFade: #2E0013;
+		--orangeFade: #411200;
+		--yellowFade: #372A09;
+		--greenFade: #002D28;
+		--blueFade: #000E35;
+		--purpleFade: #31104B;
+		--pinkFade: #481244;
+		--greyFade: #111622;
+		--grayFade: #111622;
+		--greyTransparent: rgba(26, 27, 40, 0.75);
+		--grayTransparent: rgba(26, 27, 40, 0.75);
+		// Light
+		--redLight: #770000;
+		--orangeLight: #812B00;
+		--yellowLight: #9B7E1D;
+		--greenLight: #006336;
+		--blueLight: #00006F;
+		--purpleLight: #51008C;
+		--pinkLight: #890268;
+		--greyLight: #1A1A26;
+		--grayLight: #1A1A26;
+		// Dark
+		--redDark: #E40000;
+		--orangeDark: #EC4D35;
+		--yellowDark: #FFC81D;
+		--greenDark: #20B573;
+		--blueDark: #0000DF;
+		--purpleDark: #A11DDE;
+		--pinkDark: #F013C7;
+		// --blueDark: #0049DD;
+		--greyDark: #343443;
+		--grayDark: #343443;
+
+
+	// Blacks, Greys, Text
+	// Text
+	--text: #fff;
+		--textFade: rgba(255,255,255, 0.45);
+		--textLight: rgba(255,255,255, 0.82);
+	// Borders
+	--border: rgba(178, 178, 193, 0.75);
+		--borderFade: rgba(178, 178, 193, 0.5);
+		--borderLight: rgba(178, 178, 193, 0.35);
+		--borderDark: rgba(178, 178, 193, 0.9);
+
+
+	// Misc
+	--outline: var(--blue);
+	--scrollThumb: var(--text);
+	// Links
+	--links: #008FFF;
+	--linksDark: #43A5FF;
+	// Active/highlight
+	--activeColor: #2F3856;
+
+
+	// Box Shadows
+	--shadow:
+		0px 2px 15px -8px rgba(10,10,10,0.6),
+		0px 4px 20px -10px rgba(10,10,10,0.45);
+
+
+}
+[data-theme="high-contrast-dark"] {
+
+}
+

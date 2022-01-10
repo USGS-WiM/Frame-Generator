@@ -1,0 +1,515 @@
+//! UI Elements
+// Styles for misc global UI elements
+// 
+// Page hero
+// Page color themes
+// Badges
+// Breadcrumbs
+// Tooltips
+// Page Footer
+// 
+
+
+// Color Picker
+.theme-picker{
+	display: flex;
+	justify-content: space-around;
+	padding: 4px 0;
+	box-sizing: border-box;
+
+	.theme-color{
+		flex-grow: 3;
+		
+		height: 30px;
+		width: 30px;
+		min-height: 30px;
+		max-height: 30px;
+		min-width: 30px;
+		max-width: 30px;
+		margin: 0 4px;
+		transform: scale(1);
+
+		box-sizing: border-box;
+		padding: 0 0px;
+		border: 2px solid var(--borderFade);
+		position: relative;
+		transition: var(--transition);
+
+		@media (max-width: $screenSM) {
+			height: 25px;
+			width: 25px;
+		}	
+
+		&:hover:not(.active){
+			cursor: pointer;
+			border-color: var(--borderLight);
+			transform: scale(1.1);
+		}
+
+		&.active{
+			border-color: var(--borderLight);
+			border-radius: 50%;
+		}
+
+		input{
+			opacity: 0;
+		}
+	}
+
+	#theme_color_transparent{background-color: var(--background);}
+	#theme_color_grey{background-color: var(--greyFade);}
+	#theme_color_blue{background-color: var(--blueFade);}
+	#theme_color_green{background-color: var(--greenFade);}
+	#theme_color_red{background-color: var(--redFade);}
+	#theme_color_yellow{background-color: var(--yellowFade);}
+	#theme_color_orange{background-color: var(--orangeFade);}
+	#theme_color_pink{background-color: var(--pinkFade);}
+	#theme_color_purple{background-color: var(--purpleFade);}
+
+	&.no-white #theme_color_transparent{
+		display: none;
+	}
+
+}
+
+
+// Page Hero
+.page-hero{
+	display: flex;
+	flex-direction: column;
+	background-color: var(--greyFade);
+	box-sizing: border-box;
+	justify-content: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+	&.no-padding{
+		padding-top: 0;
+		padding-bottom: 0;;
+	}
+
+	p{
+		margin: 0 auto 25px auto;
+	}
+}
+
+
+// Badges
+.badge{
+	display: flex;
+	font-weight: 500;
+	font-size: 13px;
+	font-family: var(--systemFont);
+	box-sizing: border-box;
+	background-color: var(--primary);
+	color: var(--white);
+	padding: 5px 6px 5px 7px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	text-transform: capitalize;
+	width: fit-content;
+	// Adjust padding on mobile
+	@media (max-width: $screenSM) {
+		font-size: 12px;
+		padding: 5px 6px 5px 7px;
+	}
+
+	i{
+		margin-right: 5px;
+		transform: scale(1.1);
+		transform-origin: center center;
+	}
+
+	span{
+		white-space: pre;
+	}
+
+	// Color variations
+	&.blue{background-color:var(--blue);}
+	&.red{background-color:var(--red);}
+	&.orange{background-color:var(--orange);}
+	&.purple{background-color:var(--purple);}
+	&.pink{background-color:var(--pink);}
+	&.green{
+		background-color:var(--green);
+		color: var(--text);
+	}
+	&.yellow{
+		background-color:var(--yellow);
+		color: var(--black);
+	}
+	&.grey{
+		background-color:var(--grey);
+		color: var(--text);
+	}
+	&.transparent{
+		background-color: transparent;
+		color: var(--text);
+	}
+	&.black{background-color:var(--text); color: var(--background);}
+
+	// Reverse badge - curve and icon reversed
+	&.reverse{
+		border-top-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+
+		i{
+			margin-left: 5px;
+			margin-right: 2px;
+		}
+	}
+
+	&.small{
+		font-size: 9px;
+		padding: 4px 6px 5px 8px;
+		letter-spacing: -0.2px;
+
+		span{
+			font-size: 11px !important;
+			padding-bottom: 1px;
+		}
+
+
+		@media (max-width: $screenSM) {
+			font-size: 8px;
+			font-weight: 500;
+			padding: 4px 6px 3px 7px;
+		}
+
+		i{
+			margin-right: 5px;
+			transform: scale(1.25) translateY(2px);
+
+			@media (max-width: $screenSM) {
+				transform: scale(1.35) translateY(2px);
+			}
+		}
+		&.reverse i{
+			margin: 0 5px;
+		}
+	}
+
+	&.tiny{
+		font-size: 9px;
+		padding: 0 5px 0 5px;
+		letter-spacing: -0.2px;
+		width: fit-content;
+		height: 17px;
+
+		@media (max-width: $screenSM) {
+			padding: 3px 4px 3px 4px;
+		}
+
+
+		span{
+			font-size: 10px !important;
+			font-weight: bolder;
+			letter-spacing: -0.4px;
+			line-height: 17px;
+			@media (max-width: $screenSM) {
+				line-height: 12px;
+			}
+		}
+
+		i{
+			margin-right: 5px;
+			line-height: 17px;
+			transform: scale(1);
+			@media (max-width: $screenSM) {
+				line-height: 12px;
+			}
+
+		}
+		&.reverse i{
+			margin: 0 0 0 5px;
+		}
+	}
+
+}
+
+
+// Breadcrumbs
+.breadcrumbs{
+	display: flex;
+	width: 100%;
+	box-sizing: border-box;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+	@media (max-width: $screenSM) {
+		// flex-wrap: nowrap;
+		// overflow: auto;
+	}
+
+	// Hide scrollbars
+	// Hidden
+	&::-webkit-scrollbar{
+		width: 0px;
+		display: none;
+	}
+	// Scrollbar handle/thumb
+	&::-webkit-scrollbar-thumb{
+		display: none;
+		width: 0px;
+	}
+
+	.crumb{
+		display: flex;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.35px;
+		color: var(--textLight);
+		transition: var(--transition);
+		text-transform: capitalize;
+		width: fit-content;
+		font-family: var(--systemFont);
+
+		// Shrink on mobile
+		@media (max-width: $screenSM) {
+			margin-bottom: 6px;
+		}
+		@media (max-width: $screenSM) {
+			font-size: 13px;
+			text-align: center;
+		}
+
+		span{
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-right: 8px;
+			white-space: pre;
+			text-transform: capitalize;
+		}
+
+		// Add arrow before each child
+		&:before{
+			content: '\f30b';
+			font-family: var(--fontAwesome);
+			display: block;
+			padding: 0px 8px 0 0;
+			color: var(--textLightest);
+			position: relative;
+			top: 1px;
+			font-weight: 500;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		// Remove arrow before first child
+		&:first-child{
+			&:before{
+				display: none;
+			}
+		}
+
+		// Hover
+		&:hover{
+			text-decoration: none;
+			color: var(--textLight);
+			transition: var(--transition);
+			cursor: pointer;
+
+			span{
+			}
+		}
+
+		// Highlight last (current) crumb
+		&.active{
+			color: var(--text);
+		}
+
+	}
+
+	&.no-hover .crumb:hover{
+		cursor: default;
+	}
+}
+
+
+
+// Changelog/Feature block
+.changelog-block{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 45px 0 0 0;
+
+
+	.changelog-date{
+		width: 30%;
+		min-width: 200px;
+		font-size: 16px;
+		font-weight: 500;
+		color: var(--textLight);
+		padding: 5px 0 15px 0;
+		box-sizing: border-box;
+	}
+
+	.changelog-body{
+		flex-grow: 3;
+
+		h5{
+			padding-right: 10px;
+		}
+		.badge{
+			margin-top: 6px;
+		}
+	}
+}
+
+
+
+// Shadow and hover stuff
+// Shadow and hover stuff
+// Shadow and hover stuff
+// Shadow and hover stuff
+
+// Box shadow
+.box-shadow{
+	box-shadow: var(--shadow);
+
+	&.hoverable:hover{
+		box-shadow: var(--shadow-Hover);
+	}
+}
+.hover-shadow{
+	box-shadow: var(--shadow);
+
+	&:hover{
+		cursor: pointer;
+		box-shadow: var(--shadow-Hover);
+		transform: scale(1.015);
+	}
+}
+
+// Thicker shadow normally, hover shrink
+.reverse-hover-shadow{
+	box-shadow: var(--shadow-Hover);
+
+	&:hover{
+		cursor: pointer;
+		box-shadow: var(--shadow);
+		transform: scale(0.98);
+	}
+}
+
+// Line shadow
+// With color variants for themes
+.line-shadow{
+	box-shadow: var(--lineShadow);
+	border: none !important;
+
+	&.hoverable:hover{
+		box-shadow: var(--lineShadow-Hover);
+		transform: translate(8px, 8px);
+	}
+
+	// Color Variants
+	// "transparent", "grey", "blue", "green", "red", "yellow", "orange", "pink", "purple"
+	&.shadow-blue{
+		box-shadow: var(--lineShadow-Blue);
+		&.hoverable:hover{
+			box-shadow: var(--lineShadow-Blue-Hover);
+		}
+	}
+	&.shadow-green{
+		box-shadow: var(--lineShadow-Green);
+		&.hoverable:hover{
+			box-shadow: var(--lineShadow-Green-Hover);
+		}
+	}
+	&.shadow-red{
+		box-shadow: var(--lineShadow-Red);
+		&.hoverable:hover{
+			box-shadow: var(--lineShadow-Red-Hover);
+		}
+	}
+	&.shadow-yellow{
+		box-shadow: var(--lineShadow-Yellow);
+		&.hoverable:hover{
+			box-shadow: var(--lineShadow-Yellow-Hover);
+		}
+	}
+	&.shadow-orange{
+		box-shadow: var(--lineShadow-Orange);
+		&.hoverable:hover{
+			box-shadow: var(--lineShadow-Orange-Hover);
+		}
+	}
+	&.shadow-pink{
+		box-shadow: var(--lineShadow-Pink);
+		&.hoverable:hover{
+			box-shadow: var(--lineShadow-Pink-Hover);
+		}
+	}
+	&.shadow-purple{
+		box-shadow: var(--lineShadow-Purple);
+		&.hoverable:hover{
+			box-shadow: var(--lineShadow-Purple-Hover);
+		}
+	}
+}
+
+// Layer shadow
+// With color variants for themes
+.layer-shadow{
+	box-shadow: var(--layerShadow);
+
+	&.hoverable:hover{
+		box-shadow: var(--layerShadow-Hover);
+		transform: translate(8px, 8px);
+	}
+
+	// Color Variants
+	// "transparent", "grey", "blue", "green", "red", "yellow", "orange", "pink", "purple"
+	&.shadow-blue{
+		box-shadow: var(--layerShadow-Blue);
+		&.hoverable:hover{
+			box-shadow: var(--layerShadow-Blue-Hover);
+		}
+	}
+	&.shadow-green{
+		box-shadow: var(--layerShadow-Green);
+		&.hoverable:hover{
+			box-shadow: var(--layerShadow-Green-Hover);
+		}
+	}
+	&.shadow-red{
+		box-shadow: var(--layerShadow-Red);
+		&.hoverable:hover{
+			box-shadow: var(--layerShadow-Red-Hover);
+		}
+	}
+	&.shadow-yellow{
+		box-shadow: var(--layerShadow-Yellow);
+		&.hoverable:hover{
+			box-shadow: var(--layerShadow-Yellow-Hover);
+		}
+	}
+	&.shadow-orange{
+		box-shadow: var(--layerShadow-Orange);
+		&.hoverable:hover{
+			box-shadow: var(--layerShadow-Orange-Hover);
+		}
+	}
+	&.shadow-pink{
+		box-shadow: var(--layerShadow-Pink);
+		&.hoverable:hover{
+			box-shadow: var(--layerShadow-Pink-Hover);
+		}
+	}
+	&.shadow-purple{
+		box-shadow: var(--layerShadow-Purple);
+		&.hoverable:hover{
+			box-shadow: var(--layerShadow-Purple-Hover);
+		}
+	}
+}
+
+

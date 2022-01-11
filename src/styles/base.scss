@@ -9,7 +9,6 @@ body, html{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	min-height: 100%;
-	font-size: 12px;
 	width: 100%;
 	color: var(--text);
 	height: 100%;
@@ -31,6 +30,14 @@ body{
 	box-sizing: border-box;
 	min-height: 100%;
 	flex-grow: 3;	
+}
+
+// Overwrite fontawesome with fontawesome pro
+.far, .fal, .fas{
+	font-family: var(--fontAwesome) !important;
+}
+.fab{
+	font-family: var(--fontAwesomeBrands) !important;
 }
 
 
@@ -120,6 +127,8 @@ img{
 .select-all{
 	user-select: all;
 }
+
+
 
 
 

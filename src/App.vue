@@ -33,6 +33,7 @@
 				<!-- All page content contained within main -->
 				<main id="content">
 
+					
 					<!-- Top bar component -->
 					<TopBar></TopBar>
 
@@ -84,7 +85,6 @@
 import TopBar from "@/components/ui/TopBar/TopBar";
 import NavBar from "@/components/ui/Single/NavBar";
 import Alert from "@/components/ui/Common/Alert";
-import Callout from "@/components/ui/Common/Callout";
 import Toast from "@/components/ui/Common/Toast";
 import ConfirmLeave from "@/components/ui/Modals/ConfirmLeave";
 // Mixins
@@ -97,7 +97,6 @@ export default {
 	],
 	components: {
 		Alert,
-		Callout,
 		Toast,
 		TopBar,
 		NavBar,
@@ -122,11 +121,11 @@ export default {
 		_this.pageMounted = true;
 
 		// Get geolocation if already allowed
-		setTimeout(function(){
-			if(_this.$store.getters["Device/permissions"].geolocation == "granted"){
-				_this.getGeolocation();
-			}
-		}, 2000);
+		// setTimeout(function(){
+		// 	if(_this.$store.getters["Device/permissions"].geolocation == "granted"){
+		// 		_this.getGeolocation();
+		// 	}
+		// }, 2000);
 
 
 	},
@@ -148,8 +147,8 @@ export default {
 		top: 0;
 		left: -5vw;
 		width: 110vw;
-		height: 6px;
-		z-index: 1000;
+		height: 5px;
+		z-index: 10000;
 
 		#loaderElement{
 			display: block;
@@ -157,12 +156,12 @@ export default {
 			left: 0;
 			height: 100%;
 			width: 0px;
-			background-color: var(--primary);
+			background-color: var(--yellow);
 			margin: 0 auto;
-			animation: dataLoading 1.8s ease-in-out 0s infinite normal;
+			animation: dataLoader 1.8s ease-in-out 0s infinite normal;
 		}
 	}
-	@keyframes dataLoading {
+	@keyframes dataLoader {
 		0.0%{
 			width: 0px;
 			left: 0%;

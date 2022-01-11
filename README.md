@@ -1,37 +1,55 @@
 ![WiM](wimlogo.png)
 
 
-# Geonarratives Templates & Generator
+# Frame Templates Generator
 
-This project contains the USGS-Branded, Geoplatform-branded, and NPS-branded geonarrative/storymap templates as well as a simple webapp form to generate storymaps - located at https://wim.usgs.gov/geonarrative/generator
+This project takes a URL (Storymap, Experience, Tableau, other) and other information and generates a single index.html file with government headers and footers, with the URL in an iFrame in between, giving you a website compliant with the USGS Visual identity guidelines for websites. 
+
+Also includes templates for Geoplatform and National Park Service.
 
 ### Prerequisites
 
-None
+Vue CLI
+```bash
+npm install -g @vue/cli
+```
 
 ## Getting Started
 
-Download the files locally to your computer.
-
 ### Installing
 
-There is no install process. These are just static HTML files. Double-click them to open in the browser of your choice.
-
+```bash
+npm install
+```
 
 ## Building and testing
 
-There is no build process. 
+#### Serve on [localhost:8080](https://localhost:8080)
+```bash
+npm run serve
+```
+Bundle Analyzer will also be running at :8888
 
-## Deployment
+#### Build
+```bash
+npm run build
+```
 
-Upload the static files you need to a server.
+## Other Commands
+
+### Run your tests
+```bash
+npm run test
+```
+### Lints and fixes files
+```bash
+npm run lint
+```
 
 ## Built With
 
-* HTML
-* Javascript
-* jQuery
-* CSS
+* [Vue](https://vuejs.org)
+* [USWDS](https://designsystem.digital.gov/)
 
 ## Contributing
 
@@ -49,7 +67,7 @@ To push tags to remote origin: `git push origin --tags`
 
 ## Authors
 
-* **[Mitch Samuels](https://github.com/mitch-wim)**  - *Lead Developer* - [USGS Web Informatics & Mapping](https://wim.usgs.gov/)
+* **[Mitch Samuels](https://github.com/mitchas)**  - *Lead Developer* - [USGS Web Informatics & Mapping](https://wim.usgs.gov/)
 * **[Jamie Velkoverh](mailto:JVELKOVERH@USGS.GOV)** - *Geonarrative Coordinator* -  [USGS Web Informatics & Mapping](https://wim.usgs.gov/)
 
 See also the list of [contributors](../../graphs/contributors) who participated in this project.

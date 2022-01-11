@@ -6,6 +6,11 @@
 @import 'variables.scss';
 // Then reset
 @import 'reset.scss';
+
+// USWDS
+@import "~uswds/dist/css/uswds.min.css";
+@import "~uswds-vue/dist/uswds-vue.css";
+
 // Then base
 @import 'base.scss';
 // Then everything else

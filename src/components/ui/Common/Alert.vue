@@ -145,6 +145,7 @@ export default {
 			}
 			&.green{
 				background-color: var(--green);
+				color: var(--white);
 			}
 			&.orange{
 				color: var(--white);

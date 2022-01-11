@@ -7,14 +7,23 @@
 -->
 
 <template>
+
 	<div id="topBar" :class="{'disable': $store.getters['Hold/modalOpen']}">
+
+		<!-- USGS Headers -->
+		<div id="requiredHeaders">
+			<div id="usgsHeader">
+				<img src="@/assets/branding/usgs-tagline.png" title="USGS Logo" alt="USGS Logo"/>
+			</div>
+		</div>
+
 
 		
 		<!-- Branding - Logo -->
 		<div id="branding">
 			<button id="logo" @click="navigate('/')" tabindex="0" aria-label="Home">
-				<img src="@/assets/branding/logo-light.png" title="Logo" alt="Logo" v-if="!$store.getters['Settings/darkMode']"/>
-				<img src="@/assets/branding/logo-dark.png"  title="Logo" alt="Logo" v-else />
+				<img src="@/assets/branding/wim-horizontal-light.png" title="Logo" alt="Logo" v-if="!$store.getters['Settings/darkMode']"/>
+				<img src="@/assets/branding/wim-horizontal-dark.png"  title="Logo" alt="Logo" v-else />
 			</button>
 		</div>
 
@@ -29,9 +38,9 @@
 
 			<div id="pageNavigation">
 
-				<a class="nav-link" @click="navigate('/things/')" aria-label="Things" :class="{'is-active': $route.path == '/' }">
+				<!-- <a class="nav-link" @click="navigate('/')" aria-label="Home" :class="{'is-active': $route.path == '/' }">
 					Home
-				</a>
+				</a> -->
 
 			</div>
 
@@ -50,7 +59,7 @@
 					<!-- Hover label to show dropdown -->
 					<button class="nav-icon-button" :class="{'active': showAccountPopover}" @click="showAccountPopover = !showAccountPopover" aria-label="Account Dropdown">
 						<!-- Toggle icon -->
-						<i :class="{'fas fa-angle-down': !showAccountPopover, 'fas fa-times': showAccountPopover}"></i>
+						<i :class="{'far fa-ellipsis-v': !showAccountPopover, 'fas fa-times': showAccountPopover}"></i>
 					</button>
 
 					<!-- Popup on click -->
@@ -107,7 +116,7 @@ export default {
 
 		// Toggle Map View
 		toggleMap: function(){
-			this.$store.dispatch("Map/CHANGE_MAP_DISPLAY", "visible")
+			this.$store.dispatch("Map/CHANGE_MAP_DISPLAY", "visible");
 		}
 
 	}
@@ -116,6 +125,28 @@ export default {
 
 <style lang="scss">
 
+#requiredHeaders{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	#usgsHeader{
+		display: block;
+		width: 100%;
+		padding: 10px var(--sidePadding);
+		background-color: var(--usgsBlue);
+		height: fit-content;
+
+		img{
+		background-color: var(--usgsBlue);
+			height: 55px;
+			width: auto;
+		}
+	}
+
+}
+
 
 	// Top nav bar
 	// Has logo and hover menu for account/dark mode
@@ -123,7 +154,7 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-		padding: 0 15px 0 40px;
+		padding: var(--requiredTopBarHeight) 15px 0 40px;
 		box-sizing: border-box;
 		height: var(--topBarHeight);
 		position: fixed;
@@ -158,7 +189,7 @@ export default {
 				
 
 				img{
-					height: 38px;
+					height: 32px;
 					width: auto;
 					@media (max-width: $screenSM) {
 						height: 32px;
@@ -418,7 +449,6 @@ export default {
 					width: 40px;
 					height: 40px;
 					border-radius: 50%;
-					border: 1px solid var(--borderFade);
 					background-color: var(--background);
 					text-align: center;
 					font-size: 20px;
@@ -439,10 +469,7 @@ export default {
 					// Icon
 					i{
 						margin: 0 auto;
-
-						&.fa-map{
-							padding-top: 2px;
-						}
+						padding-top: 2px;
 					}
 					// i{
 					// 	display: inline-flex;

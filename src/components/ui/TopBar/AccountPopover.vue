@@ -8,59 +8,46 @@
 	<div class="nav-popover">
 
 
-		<!-- Featured Button -->
-		<!-- view profile -->
-		<button class="button round small transparent" id="featuredButton" @click="navigate('/')">
-			<i class="far fa-user-circle"></i>
-			<span>Generate Frame</span>
-		</button>
-
-
 		<div id="ControlPanel">
 
-			<!-- All Users -->
-			<button aria-label="Toggle Dark" @click="toggleDarkTheme()">
-				<i v-bind:class="{ 'far fa-lightbulb-slash': !$store.getters['Settings/darkMode'], 'far fa-lightbulb-on': $store.getters['Setings/darkMode'] }"></i>
-				<span v-if="!$store.getters['Settings/darkMode']">Dark Mode</span>
+			<button aria-label="Toggle Dark" @click="darkMode = !darkMode">
+				<i v-bind:class="{ 'far fa-lightbulb-slash': !darkMode, 'far fa-lightbulb-on': darkMode }"></i>
+				<span v-if="!darkMode">Dark Mode</span>
 				<span v-else>Light Mode</span>
 			</button>
-			<hr v-if="$store.getters['User/getAuth']"/>
 
-			<!-- Everyone -->
-			<button @click="navigate('/about')" aria-label="About">
-				<i class="far fa-hand-peace"/>
-				<span>About The Project</span>
+			<!-- Preview Themes -->
+			<button @click="navigate('/frame')" aria-label="Preview Themes">
+				<i class="far fa-eye"/>
+				<span>Preview Themes</span>
 			</button>
-			<button @click="navigate('/sponsors')" aria-label="Open Source">
-				<i class="fab fa-github"/>
-				<span>Open Source</span>
-			</button>
-			<button @click="navigate('/help')" aria-label="Help & Guide">
-				<i class="far fa-question-circle"/>
-				<span>Help & User Guide</span>
+
+			<!-- Git Repo -->
+			<button @click="tab('https://github.com/usgs-wim')" aria-label="Open Source">
+				<i class="far fa-code"/>
+				<span>Open Source on GitLab</span>
 			</button>
 
 			<!-- Buttons -->
-			<hr/>
-
-			<div class="flex flex-between">
+			<!-- <div class="flex flex-between">
 
 				<button @click="navigate('/signin')" class="auth" aria-label="Sign In">
 					<i class="far fa-lock"/>
 					<span>Sign In</span>
 				</button>
-				<!-- Sign Up -->
 				<button @click="navigate('/register')" class="auth" aria-label="Create Account">
 					<i class="far fa-user-plus"/>
 					<span>Sign Up</span>
 				</button>
 
-			</div>
+			</div> -->
+
+
 		</div>
 
 		<!-- Footer -->
 		<div class="popover-footer">
-			<div>v{{$store.getters['Hold/appVersion']}}</div>
+			<div>v{{$store.getters['Hold/appVersion']}} - Made by <a href="https://wim.usgs.gov" target="_blank">WIM</a></div>
 		</div>
 
 
@@ -89,15 +76,18 @@ export default {
 	},
 	computed: {
 
+		darkMode: {
+			get() {
+				return this.$store.getters["Settings/darkMode"];
+			},
+			set(value) {
+				this.$store.dispatch("Settings/TOGGLE_DARK_MODE", value);
+			},
+		}
+
   	},
 	methods: {
 
-		// Dark theme button
-		toggleDarkTheme: function(){
-			let _this = this;
-			let flip = !_this.$store.getters["Settings/darkMode"];
-			_this.$store.dispatch("User/TOGGLE_DARK_THEME", {on: flip});
-		},
 	}	
 };	
 
@@ -106,20 +96,12 @@ export default {
 <style lang="scss">
 	
 
-	// Featured Button
-	#featuredButton{
-		display: block;
-		margin: 12px auto 12px auto;
-		width: 220px;
-	}
-
 	// Control panel shortcuts
 	#ControlPanel{
 		display: flex;
 		flex-direction: column;
 		padding: 0 0 0 0;
 		margin-top: 0;
-		font-family: var(--systemFont);
 
 		hr{
 			width: 100%;
@@ -132,7 +114,7 @@ export default {
 			width: 100%;
 			color: var(--text);
 			display: flex;
-			margin-bottom: 4px;
+			margin-bottom: 8px;
 			border-radius: var(--borderRadius);
 
 			// Authentication buttons, side by side
@@ -174,7 +156,7 @@ export default {
 			}
 
 			span{
-				font-size: 14px;
+				font-size: 15px;
 				font-weight: 500;
 				display: flex;
 				height: 34px;
@@ -219,7 +201,6 @@ export default {
 		transform-origin: top center;
 		box-shadow: var(--shadow);
 		padding: 12px;
-		font-family: var(--systemFont);
 
 		@media (max-width: $screenSM) {
 			min-width: 220px;
@@ -244,7 +225,6 @@ export default {
 		display: flex;
 		width: 100%;
 		font-weight: 500;
-		font-family: var(--monospace);
 		justify-content: center;
 		box-sizing: border-box;
 		padding: 10px 0 0 0;

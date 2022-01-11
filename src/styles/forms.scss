@@ -521,7 +521,6 @@ button{
 	// Green
 	&.green{
 		background-color: var(--green);
-		color: var(--text);
 	}
 	// Red
 	&.red{
@@ -862,11 +861,11 @@ input[type="checkbox"]:focus {
 		background: var(--background);
 
 		&:after{
-			background: var(--green);
+			background: var(--blue);
 			transform: scale(1) translateX(17px);
 			content: '';
 			opacity: 1;
-			color: var(--black);
+			color: var(--white);
 		}
 		&:hover:not(:disabled){
 			border-color: var(--borderDark);

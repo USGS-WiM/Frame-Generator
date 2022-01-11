@@ -44,7 +44,7 @@
 					<span>var(--{{color}}Light)</span>
 					<span class="code">{{getCSSVariable(color + 'Light')}}</span>
 				</div>
-				<div class="ui-color-box main" :style="'background-color: var(--' + color + ');'">
+				<div class="ui-color-box dark main" :style="'background-color: var(--' + color + ');'">
 					<span>var(--{{color}})</span>
 					<span class="code">{{getCSSVariable(color)}}</span>
 				</div>
@@ -60,7 +60,7 @@
 					<span>var(--black)</span>
 					<span class="code">{{getCSSVariable('black')}}</span>
 				</div>
-				<div class="ui-color-box light main" :style="'background-color: var(--white);'">
+				<div class="ui-color-box main" :style="'background-color: var(--white);'">
 					<span>var(--white)</span>
 					<span class="code">{{getCSSVariable('white')}}</span>
 				</div>
@@ -205,7 +205,7 @@ export default {
 
 				&.main{
 					height: 120px;
-					color: var(--background);
+					color: var(--text);
 				}
 				&.dark{
 					color: var(--background);

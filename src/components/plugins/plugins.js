@@ -41,7 +41,7 @@ export default {
 			document.getElementById("mainScrollView").scrollTo({
 				top: 0,
 				left: 0,
-				behavior: "smooth"
+				behavior: "smooth",
 			  });
 		};
 

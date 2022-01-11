@@ -12,11 +12,15 @@ export const routes = [
 		component: () => import(/* webpackChunkName: "home" */ "./views/Home.vue"),
 		meta: {
 			title: AppName + " — Home",
-
-			sitemap: {
-				priority:    1,
-				changefreq: "weekly",
-			}
+		}
+	},
+	// * Frame Page
+	{
+		path: "/frame",
+		name: "frame",
+		component: () => import(/* webpackChunkName: "home" */ "./views/Frame.vue"),
+		meta: {
+			title: AppName + " — Frame",
 		}
 	},
 	//* Interface
@@ -27,9 +31,6 @@ export const routes = [
 		component: () => import(/* webpackChunkName: "interface" */ "./views/other/interface/Interface.vue"),
 		meta: {
 			title: "Interface Examples — " + AppName,
-
-			// Ignore in sitemap
-			sitemap: { ignoreRoute: true }
 		}
 	},
 	// 
@@ -42,9 +43,6 @@ export const routes = [
 		component: () => import(/* webpackChunkName: "error-404" */ "./views/other/Error404.vue"),
 		meta: {
 			title: "404 - Page not Found — " + AppName,
-
-			// Ignore in sitemap
-			sitemap: { ignoreRoute: true }
 		}
 	},
 	// 

@@ -43,10 +43,10 @@ const getters = {
 		return state.dark_theme;
 	},
 	animations( state ) {
-		return state.dark_theme;
+		return state.accessibility.animations;
 	},
 	outlines( state ) {
-		return state.dark_theme;
+		return state.accessibility.outlines;
 	},
 
 };
@@ -55,7 +55,7 @@ const getters = {
 const actions = {
 
 	// Preferences
-	TOGGLE_DARK_THEME({ commit, getters, dispatch }, payload) {
+	TOGGLE_DARK_MODE({ commit, getters, dispatch }, payload) {
 		let _this = this;
 
 		var dark = function(){
@@ -69,9 +69,9 @@ const actions = {
 			document.querySelector("meta[name=\"theme-color\"]").setAttribute("content",  "#00172E");
 		};
 
-		if(payload.on == true){
+		if(payload == true){
 			dark();
-		}else if(payload.on == false){
+		}else if(payload == false){
 			light();
 		}
 	},

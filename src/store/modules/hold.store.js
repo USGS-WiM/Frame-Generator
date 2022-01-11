@@ -3,7 +3,7 @@
 
 import { stateMerge } from "vue-object-merge";
 import debounce from "lodash/debounce";
-import router from '@/router'
+import router from "@/router";
 
 
 const state = {

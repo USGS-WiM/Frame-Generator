@@ -7,6 +7,7 @@ import App from "./App.vue";
 import router from "./router";
 import "./registerServiceWorker";
 import store from "@/store/store";
+import { UswdsVue } from "uswds-vue";
 
 // Custom Plugins
 import plugins from "@/components/plugins/plugins.js";
@@ -19,6 +20,7 @@ Vue.config.productionTip = false;
 // Use
 Vue.use(logging);
 Vue.use(plugins);
+Vue.use(UswdsVue);
 
 // Main styles
 import "./styles/main.scss";
@@ -30,6 +32,11 @@ import "./styles/main.scss";
 Vue.component("v-style", {
 	render: function (createElement) {
 		return createElement("style", this.$slots.default);
+	}
+});
+Vue.component("v-script", {
+	render: function (createElement) {
+		return createElement("script", this.$slots.default);
 	}
 });
 
@@ -47,9 +54,9 @@ let app = new Vue({
 
 // Determine dark mode based on device settings
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-	store.dispatch("User/TOGGLE_DARK_THEME", {on: true});
+	store.dispatch("Settings/TOGGLE_DARK_MODE", true);
 }else{
-	store.dispatch("User/TOGGLE_DARK_THEME", {on: false});
+	store.dispatch("Settings/TOGGLE_DARK_MODE", false);
 }
 
 

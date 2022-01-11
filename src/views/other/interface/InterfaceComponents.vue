@@ -38,7 +38,7 @@
 		 -->
 		<h5 class="mtop-lg flex">
 			Tooltip
-			<Tooltip class="ptop-xxs" color="red" position="right" link="https://hotdi.sh" linkText="Click Here">
+			<Tooltip class="ptop-xxs" color="red" position="right" link="https://google.com" linkText="Click Here">
 				This is the tooltip.
 			</Tooltip>
 
@@ -47,7 +47,7 @@
 		<pre><code>
 // import Tooltip from "@/components/ui/Common/Tooltip";
 
-&lt;Tooltip icon="far fa-code" color="red" position="right" link="https://hotdi.sh" linkText="Click Here"&gt;
+&lt;Tooltip icon="far fa-code" color="red" position="right" link="https://google.com" linkText="Click Here"&gt;
   This is the tooltip.
 &lt;/Tooltip&gt;
 

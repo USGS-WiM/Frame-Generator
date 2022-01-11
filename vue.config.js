@@ -39,8 +39,5 @@ module.exports = {
 			reportFilename: "build_analysis.html"
 		},
 	},
-	publicPath: process.env.NODE_ENV === "production"
-	  ? "/geonarrative/generator/" 
-	  // Change this ^^ path if the app won't be at root level ie website.com/app/ - put "/app/"
-	  : "/"
+	publicPath: process.env.VUE_APP_BASE_PATH
   };

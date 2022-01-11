@@ -10,7 +10,7 @@ import createLogger from "vuex/dist/logger";
 // Store Modules
 import Device from "./modules/device.store";
 import Hold from "./modules/hold.store";
-import User from "./modules/settings.store";
+import Settings from "./modules/settings.store";
 
 const debug = process.env.NODE_ENV !== "production";
 
@@ -20,7 +20,7 @@ export default new Vuex.Store({
 	modules: {
 		Device,
 		Hold,
-		User,
+		Settings,
 	},
 	strict: debug,
 	plugins: debug? [ createLogger() ] : [],

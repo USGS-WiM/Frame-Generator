@@ -32,6 +32,8 @@ Home.vue
 
 				</div>
 
+				{{currentStep}}
+
 
 				<!-- Steps -->
 				<transition-group name="list">
@@ -85,6 +87,13 @@ Home.vue
 										v-model="form.theme"
 									/>
 								</us-form-group>
+
+								<div class="flex flex-end">
+								<router-link to="/frame" aria-label="Preview Themes" class="button transparent tiny mtop-sm">
+									<i class="far fa-eye"/>
+									<span>Preview All Themes</span>
+								</router-link>
+								</div>
 
 
 								<!-- ESRI Header toggle - only shows if ESRI Url detected -->
@@ -214,7 +223,7 @@ Home.vue
 							<!-- Google -->
 							<h4 class="mtop-sm">Google Search</h4>
 							<div id="googlePreview">
-								<div id="googleURL">https://wim.usgs.gov/geonarrative/</div>
+								<div id="googleURL">https://geonarrative.usgs.gov/</div>
 								<div id="googleTitle">{{form.title || "Your Frame Site"}}</div>
 								<div id="googleDescription">{{form.meta_description || "Proident sunt tempor ut dolor veniam id elit incididunt adipisicing magna in occaecat incididunt qui quis eiusmod fugiat cillum"}}</div>
 							</div>
@@ -225,7 +234,7 @@ Home.vue
 							<div id="teamsPreview">
 								<div id="teamsTitle">{{form.title || "Your Frame Site"}}</div>
 								<div id="teamsDescription">{{form.meta_description || "Proident sunt tempor ut dolor veniam id elit incididunt adipisicing magna in occaecat incididunt qui quis eiusmod fugiat cillum"}}</div>
-								<div id="teamsURL">https://wim.usgs.gov/geonarrative/</div>
+								<div id="teamsURL">https://geonarrative.usgs.gov/</div>
 							</div>
 
 						</fieldset>
@@ -338,6 +347,7 @@ Home.vue
 					ga("send", "pageview", "{{form.title}}")'
 				</v-script>
 			</div>
+			
 
 
 		</div>
@@ -505,7 +515,7 @@ export default {
 
 			setTimeout(() => {
             	downloadLink.click();
-				_this.hello("Downloading!", "far fa-check", "green");
+				_this.hello("File downloaded", "far fa-check", "green");
 				_this.$store.dispatch("Hold/STOP_LOAD");
       		}, 500);
 

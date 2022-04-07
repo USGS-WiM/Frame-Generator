@@ -23,16 +23,6 @@ export const routes = [
 			title: AppName + " — Frame",
 		}
 	},
-	//* Interface
-	// Example page for seeing UI Elements
-	{
-		path: "/interface",
-		name: "interface",
-		component: () => import(/* webpackChunkName: "interface" */ "./views/other/interface/Interface.vue"),
-		meta: {
-			title: "Interface Examples — " + AppName,
-		}
-	},
 	// 
 	// ! Other Pages
 	// 

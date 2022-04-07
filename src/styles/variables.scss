@@ -12,12 +12,12 @@ $screenXL: 1400px;
 	//* Global variables				
 	// Not specific to light theme 
 	// Fonts
-	--sans: 'Roboto';
 	--serif: 'Crimson Pro', 'Lucida Bright', 'Garamond', 'Times New Roman', serif;
 	--monospace: 'Space Mono', monospace;
 	--fontAwesome: 'Font Awesome 6 Pro';
 	--fontAwesomeBrands: 'Font Awesome 6 Brands';
 	--systemFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--sans: var(--systemFont);
 	
 	// Transitions
 	--transition: 0.1s;

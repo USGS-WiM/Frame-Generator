@@ -1,8 +1,8 @@
 [
   {
-    "name": "Geonarratives",
+    "name": "FrameGenerator",
     "organization": "U.S. Geological Survey",
-    "description": "WIM- and Geoplatform-branded templates for Geonarratives/Storymaps as well as a generator for those templates.",
+    "description": "iFrame generator with USGS/Gov header and footer for Geonarratives/Storymaps and other embeddable URLs.",
     "version": "v1.0.0",
     "status": "Release Candidate",
 
@@ -17,9 +17,9 @@
     },
 
     "homepageURL": "https://wim.usgs.gov/geonarrative/generator/",
-    "downloadURL": "https://github.com/USGS-WiM/geonarratives/archive/master.zip",
-    "disclaimerURL": "https://github.com/USGS-WiM/geonarratives/blob/master/DISCLAIMER.md",
-    "repositoryUrl": "https://github.com/USGS-WiM/geonarratives",
+    "downloadURL": "https://github.com/USGS-WiM/Frame-Generator/archive/master.zip",
+    "disclaimerURL": "https://github.com/USGS-WiM/Frame-Generator/blob/master/DISCLAIMER.md",
+    "repositoryUrl": "https://github.com/USGS-WiM/Frame-Generator",
     "vcs": "git",
 
     "laborHours": null,

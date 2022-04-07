@@ -5,9 +5,16 @@ Frame with conditional rendering to generate the HTML to download
 -->
 
 <template>
-	<div ref="templateBody" id="templateBody">
+	<div ref="templateBody" id="templateBody" :class="{'pad' : $route.name == 'frame'}">
 
 		<div v-if="$route.name == 'frame'" id="gnControlBanner">
+
+			<div class="mtop-xs">
+				<router-link class="button invert" to="/">
+					<i class="far fa-angle-left"></i>
+					<span>Back</span>
+				</router-link>
+			</div>
 			
 			<!-- Test Mode -->
 			<div class="flex">
@@ -59,13 +66,13 @@ Frame with conditional rendering to generate the HTML to download
 			<iframe :src="frame.url"></iframe>
 
 			<!-- Footer -->
-			<div id="gnFooter" :class="frame.theme" v-if="frame.theme != 'Blank'">
+			<footer id="gnFooter" :class="frame.theme" v-if="frame.theme != 'Blank'">
 				<span v-for="(link, key) in templates[frame.theme].footerLinks" :key="key" :class="{'block' : link.gap }">
 					<a :href="link.url" target="_blank" v-if="link.url">
 						{{link.title}}
 					</a>
 				</span>
-			</div>
+			</footer>
 
 
 			<!-- Frame Styles -->
@@ -73,7 +80,7 @@ Frame with conditional rendering to generate the HTML to download
 
 				body,html{
 					padding: 0;
-					overflow: hidden;
+					<!-- overflow: hidden; -->
 					margin: 0;
 					font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 					scrollbar-width: none;
@@ -276,10 +283,20 @@ export default {
 
 	#templateBody{
 		height: 100%;
+		box-sizing: border-box;
+
+		&.pad{
+			padding-top: var(--requiredTopBarHeight);
+		}
+
+		#gnWrapper{
+			min-height: 90vh;
+			min-height: calc(100vh - var(--requiredTopBarHeight));
+		}
 	}
 	#gnControlBanner{
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		gap: 5%;
 		box-sizing: border-box;
 		padding: 15px 15px;

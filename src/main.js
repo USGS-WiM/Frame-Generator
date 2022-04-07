@@ -52,12 +52,6 @@ let app = new Vue({
 }).$mount("#app");
 
 
-// Determine dark mode based on device settings
-if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-	store.dispatch("Settings/TOGGLE_DARK_MODE", true);
-}else{
-	store.dispatch("Settings/TOGGLE_DARK_MODE", false);
-}
 
 
 // Get device details, save in store for later

@@ -32,8 +32,6 @@ Home.vue
 
 				</div>
 
-				{{currentStep}}
-
 
 				<!-- Steps -->
 				<transition-group name="list">

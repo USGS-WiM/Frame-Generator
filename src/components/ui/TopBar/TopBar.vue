@@ -12,9 +12,9 @@
 
 		<!-- USGS Headers -->
 		<div id="requiredHeaders">
-			<div id="usgsHeader">
+			<a href="https://usgs.gov" target="_blank" id="usgsHeader">
 				<img src="@/assets/branding/usgs-tagline.png" title="USGS Logo" alt="USGS Logo"/>
-			</div>
+			</a>
 		</div>
 
 
@@ -23,10 +23,10 @@
 		<div id="appBar">
 
 			<!-- Logo -->
-			<router-link id="logo" to="/" tabindex="0" aria-label="Home">
+			<a href="https://wim.usgs.gov" id="logo" tabindex="0" aria-label="WIM Home">
 				<img src="@/assets/branding/wim_stacked_web.png" title="Logo" alt="Logo" v-if="!$store.getters['Settings/darkMode']"/>
 				<img src="@/assets/branding/wim_stacked_dark_web.png"  title="Logo" alt="Logo" v-else />
-			</router-link>
+			</a>
 
 			<div id="appName">
 				iFrame Generator
@@ -69,11 +69,6 @@ export default {
 		z-index: 2;
 		transition: all 0.2s ease;
 		background-color: var(--background);
-
-		// Adjust padding and height on smaller screens
-		@media (max-width: $screenSM) {
-			padding: 0 8px 0px 8px;
-		}
 
 
 		#requiredHeaders{

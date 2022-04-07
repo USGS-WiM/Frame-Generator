@@ -1,0 +1,25 @@
+//! Main 
+// Main SCSS file to import all others
+// 
+
+// Then variables
+@import 'variables.scss';
+// Then reset
+@import 'reset.scss';
+
+// USWDS
+@import "~uswds/dist/css/uswds.min.css";
+@import "~uswds-vue/dist/uswds-vue.css";
+
+// Then base
+@import 'base.scss';
+// Then everything else
+@import 'modal.scss';
+@import 'typography.scss';
+@import 'animations.scss';
+@import 'forms.scss';
+@import 'custom-forms.scss';
+@import 'layout.scss';
+@import 'results.scss';
+@import 'helpers.scss';
+@import 'ui.scss';

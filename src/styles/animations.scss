@@ -1,0 +1,221 @@
+//!   Animations
+// 
+// Various animations/keyframes for vue transitions (or others)
+// 		"load" - On page load, fade in
+// 		"fade" - Fast fade
+// 		"page" - slide animation between pages
+// 		"fast" - Simple fast animation translates 15px from bottom while fading
+// 		"basic" - Simple animation translates 15px from bottom while fading
+// 		"basicup" - Simple animation translates from top
+// 		"collapse" - Collapses vertically - specify transform-origin on element it's transitioning to change
+// 		"list" - TranslateX from right while fading, staggered for children, so great for lists
+// 		"modal" - Modal enter and leave animations
+// 		"lightbox" - Lightbox enter and leave animations
+// 		"photo" - Photo transition
+
+
+//    Load
+.load-enter-active {animation: page-load .5s ease-out;}
+.load-leave-active {animation: page-load .5s ease-in reverse;}
+@keyframes page-load {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+
+//    Fade
+.fade-enter-active {animation: page-fade .175s ease-out;}
+.fade-leave-active {animation: page-fade .175s ease-in reverse;}
+@keyframes page-fade {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+
+// Page
+// On page transition / route change
+.page-enter-active {
+	animation: page-in .1s ease-out;
+}
+.page-leave-active {
+	animation: page-out .08s ease-in;
+}
+// Translates from right of page into pace while also 0% -> 100% opacity
+@keyframes page-in {
+	0% {
+		opacity: 0;
+		transform: translateX(50vw);
+	}
+	50%{
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+// Translates from other direction to look like horizontal scroll
+@keyframes page-out {
+	0% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+	50%{
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-50vw);
+	}
+}
+
+
+// Fast
+// fade and translate from bottom
+.fast-enter-active {
+	transition: all .055s;
+}
+.fast-leave-active {
+	transition: all .055s ease;
+}
+.fast-enter, .fast-leave-to{
+	opacity: 0;
+}
+// Basic
+// fade and translate from bottom
+.basic-enter-active {
+	transition: all .12s ease 0.12s;
+}
+.basic-leave-active {
+	transition: all .12s ease;
+}
+.basic-enter, .basic-leave-to{
+	transform: translateY(15px);
+	opacity: 0;
+}
+// Basicup
+// fade and translate from top
+.basicup-enter-active {
+	transition: all .12s ease 0.12s;
+}
+.basicup-leave-active {
+	transition: all .12s ease;
+}
+.basicup-enter, .basicup-leave-to{
+	transform: translateY(-15px);
+	opacity: 0;
+}
+
+
+// Collapse
+// fade and translate from top
+.collapse-enter-active {
+	transition: all .09s ease-in-out 0.12s;
+}
+.collapse-leave-active {
+	transition: all .09s ease-in-out;
+}
+.collapse-enter, .collapse-leave-to{
+	transform: scaleY(0.5);
+	transform-origin: top center;
+	opacity: 0;
+}
+
+
+
+// List
+// Use for blocks of several items/lists
+.list-enter-active {
+	animation: list-animation .2s ease both;
+
+	// Stagger children for cool effect
+	&:nth-child(1){animation-delay: 0.0s;}
+	&:nth-child(2){animation-delay: 0.2s;}
+	&:nth-child(3){animation-delay: 0.4s;}
+	&:nth-child(4){animation-delay: 0.6s;}
+	&:nth-child(5){animation-delay: 0.8s;}
+}
+.list-leave-active {
+	animation: list-animation .2s ease reverse both;
+
+	// Stagger children for cool effect
+	&:nth-child(1){animation-delay: 0.0s;}
+	&:nth-child(2){animation-delay: 0.2s;}
+	&:nth-child(3){animation-delay: 0.4s;}
+	&:nth-child(4){animation-delay: 0.6s;}
+	&:nth-child(5){animation-delay: 0.8s;}
+}
+@keyframes list-animation {
+	0% {
+		opacity: 0;
+		transform: translateX(60px);
+	}
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+
+// Modal
+// Modal animation
+.modal-enter-active {
+	transition: all .1s ease-out 0.12s;
+}
+.modal-leave-active {
+	transition: all .1s ease-in;
+}
+.modal-enter, .modal-leave-to{
+	transform: translateY(105px);
+	opacity: 0;
+}
+
+
+
+// Lightbox
+.lightbox-enter-active {
+	transition: all .12s ease 0.12s;
+}
+.lightbox-leave-active {
+	transition: all .12s ease;
+}
+.lightbox-enter, .lightbox-leave-to{
+	opacity: 0;
+}
+
+
+
+
+// Photo
+.photo-enter-active {
+	animation: photo-animation .05s ease both;
+}
+.photo-leave-active {
+	animation: photo-animation-out .05s ease reverse both;
+}
+.photoreverse-enter-active {
+	animation: photo-animation-out .05s ease both;
+}
+.photoreverse-leave-active {
+	animation: photo-animation .05s ease  reverse both;
+}
+@keyframes photo-animation {
+	0% {
+		opacity: 0;
+		transform: translateX(60px);
+	}
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+@keyframes photo-animation-out{
+	0% {
+		opacity: 0;
+		transform: translateX(-60px);
+	}
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}

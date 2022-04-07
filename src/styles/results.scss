@@ -1,0 +1,736 @@
+//! Results
+// Elements for results, query, and single thing pages
+
+// Page control bar
+// Query Header
+// Map Popup
+// Cards and card grid
+// Pseudo labels for single pages
+// Styling for single event and thing pages
+
+
+// Page control bar
+.page-control-bar{
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+	button{
+		margin-right: 8px;
+		margin-bottom: 8px;
+	}
+}
+
+
+
+// Top of query pages
+// Title, tabs (sort), etc
+.query-header{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	@media (max-width: $screenSM) {
+		flex-direction: column;
+	}
+
+	// If search bar is visible, move down a bit
+	&.search-visible{
+		@media (max-width: $screenSM) {
+			padding-top: 10px;
+		}
+	}
+
+	// Sort tbas
+	.query-tabs{
+		display: flex;
+		box-sizing: border-box;
+		padding: 0 40px 0 40px;
+
+		@media (max-width: $screenSM) {
+			padding: 0 20px 0 20px;
+		}
+		@media (max-width: $screenSM) {
+			padding: 0 15px 0 15px;
+		}
+
+		button{
+			font-size: 16px;
+			font-weight: 600;
+			box-sizing: border-box;
+			padding: 0 12px;
+			margin: 0 10px 0 0px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 42px;
+			color: var(--textLight);
+			border-bottom: 3px solid transparent;
+			text-align: center;
+
+			@media (max-width: $screenSM) {
+				margin: 0 10px 0 0;
+				font-weight: 500;
+				font-size: 14px;
+			}
+
+			&:hover,
+			&:focus{
+				cursor: pointer;
+				color: var(--text);
+			}
+
+			&.active{
+				color: var(--text);
+				letter-spacing: -0.2px;
+				border-color: var(--text);
+				font-weight: 800;
+				transition: var(--transition);
+			}
+
+		}
+	}
+
+	.query-search-filters{
+		display: block;
+		width: 100%;
+	}
+
+	// Categories - custom picker
+	.query-header-categories{
+		padding: 6px 40px 0 40px;
+
+		@media (max-width: $screenSM) {
+	  		margin-top: 15px;
+			padding: 5px 20px 5px 20px;
+		}
+		@media (max-width: $screenSM) {
+			padding: 5px 0;
+		}
+	}
+
+	// Text search and button action
+	.query-search-wrapper{
+		display: flex;
+		box-sizing: border-box;
+		padding: 0 40px;
+		margin-top: 20px;
+
+		@media (max-width: $screenSM) {
+			padding: 0 20px 0 20px;
+		}
+		@media (max-width: $screenSM) {
+			padding: 0 15px 0 15px;
+		}
+
+		.query-search{
+			box-sizing: border-box;
+			flex-grow: 3;
+			padding: 0;
+			margin: 0 0;
+			width: 100%;
+
+			.text-suggestion{
+				max-width: unset;
+			}
+
+			@media (min-width: $screenSM) {
+				max-width: 462px;
+				margin: 0;
+			}
+		}
+	}
+}
+
+
+// 
+// Map Popup
+// 
+.map-popup{
+	b{
+		display: block;
+		font-weight: 600;
+	}
+	small{
+		display: block;
+		font-size: 11px;
+	}
+}
+// Map icon
+.map-marker-icon{
+	width: 30px;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: var(--red);
+	opacity: 0.9;
+	font-size: 16px;
+	line-height: 30px;
+	padding-top: 1px;
+	box-sizing: border-box;
+	text-align: center;
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow);
+	color: var(--white);
+}
+
+// Map popups
+.mapboxgl-popup-content{
+	background-color: var(--background);
+	padding: 8px 6px 6px 6px;
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow);
+}
+.mapboxgl-popup-tip{
+	border-color: transparent !important;
+	position: relative;
+	background-color: transparent;
+	&:before{
+		content: '\f2f8';
+		font-family: var(--fontAwesome);
+		font-weight: 800;
+		color: var(--textDark);
+		position: absolute;
+		top: -15px;
+		left: -6px;
+		width: 100%;
+		height: 100%;
+
+	}
+	// opacity: 0;
+}
+.mapboxgl-popup-close-button{
+	color: var(--text);
+	transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+// Pseudo label that is hidden unless there's content below
+.pseudo-label{
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+
+	&:before{
+		height: 0px;
+		position: absolute;
+		font-size: 15px;
+		font-weight: 700;
+		line-height: 22px;
+
+		// Sidebar stacks below @630 - center labels
+		@media (max-width: 630px) {
+			// font-size: 13px;
+			font-weight: 600;;
+		}
+
+	}
+
+	&.accessibility-label:before{
+		content: 'Accessibility';
+	}
+	&.features-label:before{
+		content: 'Features';
+	}
+	&.good-for-label:before{
+		content: 'Good For...';
+	}
+	&.special-diet-label:before{
+		content: 'Diets';
+	}
+
+	div:first-child{
+		margin-top: 40px;
+	}
+}
+
+// No Results
+.no-results{
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 85px 0;
+
+	i{
+		font-size: 56px;
+		margin: 0 auto 25px auto;
+		color: var(--red);
+	}
+
+	p{
+		margin: 0 auto;
+
+		small{
+			display: block;
+			margin-top: 25px;
+			font-size: 12px;
+		}
+	}
+
+}
+
+// Query loading
+.query-loading{
+	font-size: 42px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 45px 0;
+
+	i{
+		width: 50px;
+		height: 50px;
+		text-align: center;
+		box-sizing: border-box;
+		padding: 7px 0 0px 0;
+	}
+}
+
+// Single page results display
+// Specific styles
+
+// No object found error icon
+.sp-error-icon{
+	font-size: 32px;
+	color: var(--red);
+	margin-bottom: 15px;
+}
+
+// Mapbox area
+.sp-full-map{
+	display: block;
+	width: 100%;
+	height: 300px;
+	margin-bottom: 25px;
+	border-radius: var(--borderRadius);
+
+	@media (max-width: $screenSM) {
+		height: 240px;
+	}
+}
+
+.sp-featured-image{
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	max-height: 300px;
+	height: auto;
+	border-radius: var(--borderRadiusLarge);
+
+	img{
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 300px;
+		border-radius: var(--borderRadiusLarge);
+	}
+}
+
+.sp-location{
+	font-size: 13px;
+	display: flex;
+	width: fit-content;
+
+	i{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		font-size: 26px;
+		color: var(--text);
+		margin-right: 12px;
+	}
+
+	.sp-location-row{
+		padding: 1px 0;
+		color: var(--text);
+		display: inline;
+
+		&:not(:first-child):not(:last-child){
+			&:before{
+				content: ', ';
+			}
+		}
+
+		&:last-child{
+			display: block;
+			color: var(--text);
+			font-size: 15px;
+			font-weight: 600;
+			// color: var(--primary);
+		}
+	}
+
+}
+
+.sp-date{
+	color: var(--red);
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0;
+	font-family: var(--systemFont);
+	text-transform: uppercase;
+
+	span{
+		color: var(--red);
+	}
+}
+
+
+.sp-phone{
+	display: flex;
+	font-family: var(--systemFont);
+	font-size: 14px;
+	position: relative;
+	left: -8px;
+	font-weight: 500;
+	width: 100%;
+
+	i,span{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	i{
+		width: 36px;
+		font-size: 18px;
+		text-align: center;
+		&.fa-wifi{
+			width: 30px;
+		}
+	}
+}
+
+// Details
+.sp-details{
+	display: flex;
+	// padding-top: 15px;
+	font-family: var(--systemFont);
+	width: 100%;
+	max-width: calc(var(--maxWidthLarge) + 0px);
+	margin: 0 auto;
+	flex-wrap: wrap;
+	gap: 50px;
+	justify-content: center;
+
+	// Stack below @630
+	@media (max-width: 630px) {
+		margin-bottom: 100px;
+		gap: 50px;
+	}
+
+
+	.sp-details-main{
+		flex-grow: 3;
+		box-sizing: border-box;
+		color: var(--text);
+		max-width: var(--maxWidthLarge);
+
+		@media (max-width: $screenSM) {
+		}
+
+		.sp-editor-body p:first-child{
+			padding-top: 0;
+			margin-top: 0;
+		}
+
+		p{
+			color: var(--text);
+		}
+
+	}
+	.sp-details-sidebar{
+		flex-basis: 250px;
+		flex-grow: 3;
+		box-sizing: border-box;
+		padding: 0 0 0 0;
+
+		// Narrower
+		@media (max-width: $screenSM) {
+			width: 210px;
+			min-width: 210px;
+			margin: 0 auto;
+		}
+
+		// Collapsed @630
+		@media (max-width: 630px) {
+			padding: 0;
+			margin: 0;
+			min-width: unset;
+			max-width: unset;
+		}
+
+	}
+
+	// Mapbox area
+	.sp-map{
+		display: block;
+		width: 100%;
+		height: 400px;
+		border-radius: 14px;
+	}
+}
+
+
+.sp-bottom{
+	max-width: calc(var(--maxWidthLarge) + 0px);
+	margin: 0 auto;
+}
+
+// Features
+.feature-display{
+	// background-color: red;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 15px;
+
+
+	.feature-group{
+		// max-width: 350px;
+		min-width: 130px;
+		flex-basis: 150px;
+		flex-grow: 3;
+
+
+		label{
+			font-size: 14px;
+			margin-bottom: 10px;
+			display: flex;
+			text-transform: capitalize;
+			font-weight: 600;
+		}
+
+		.feature-item{
+			display: flex;
+			margin: 9px 0;
+			box-sizing: border-box;
+			flex-wrap: wrap;
+
+			i,
+			span{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			i{
+				margin-left: -10px;
+				width: 40px;
+				font-size: 16px;
+				text-align: center;
+
+				// Rainbow party
+				&.fa-rainbow{
+					animation: rainbow-icon 8s infinite linear forwards;
+				}
+				@keyframes rainbow-icon {
+					8% {color: var(--red);}
+					16% {color: var(--orange);}
+					24% {color: var(--yellow);}
+					32% {color: var(--green);}
+					40% {color: var(--blue);}
+					48% {color: var(--purple);}
+					56% {color: var(--pink);}
+					64% {color: var(--purple);}
+					72% {color: var(--blue);}
+					80% {color: var(--green);}
+					88% {color: var(--yellow);}
+					95% {color: var(--orange);}
+					100% {color: var(--red);}
+				}
+			}
+			span{
+				font-size: 12px;
+				line-height: 14px;
+				font-weight: 500;
+				max-width: calc(100% - 45px);
+				text-transform: capitalize;
+			}
+
+			.feature-item-comment{
+				display: flex;
+				font-size: 11px;
+				width: 100%;
+				box-sizing: border-box;
+				line-height: 13px;
+				// letter-spacing: -0.3px;
+				padding: 5px 0 0 30px;
+
+				code{
+					// border: 1px solid var(--grey);
+					border-left: 2px solid var(--borderFade);
+					font-family: var(--systemFont);
+					font-style: italic;
+					padding-left: 7px;
+					color: var(--textLight);
+					background-color: transparent;
+					// border-radius: 4px;
+				}
+			}
+
+			
+		}
+
+		// Sidebar stacks @630 - increase size
+		@media (max-width: 630px) {
+
+			label{
+				font-size: 14px;
+	
+				i{
+					display: none;
+				}
+			}
+
+			.feature-item{
+				margin: 8px 0;
+				padding-left: 0px;
+				padding: 0;
+				i{
+					margin-left: 0px;
+					width: 36px;
+					font-size: 18px;
+					text-align: center;
+				}
+				span{
+					font-size: 12px;
+					font-weight: 400;
+				}
+	
+				.feature-item-comment{
+					font-size: 14px;
+					line-height: 16px;
+					padding: 2px 0 0 36px;
+				}
+			}
+
+		}
+
+	}
+}
+
+
+
+// Load More
+.results__load-more{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+
+	button{
+		margin: 0 auto;
+		box-sizing: border-box;
+		padding: 14px 60px;
+		border-radius: 45px;
+		font-size: 14px;
+		font-weight: 600;
+		background-color: transparent;
+		border: none;
+		transition: var(--transition);
+		border: 2px solid var(--border);
+
+		&:hover:not(:disabled){
+			text-decoration: underline;
+			border-color: var(--primary);
+			color: var(--primary);
+		}
+		&:disabled{
+			opacity: 0.25;
+		}
+	}
+}
+
+
+// Results page query filter display
+.query-filters{
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	li{
+		padding: 6px 12px;
+		border-radius: var(--borderRadiusLarge);
+		background-color: var(--greyFade);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 15px 15px 0;
+		text-transform: capitalize;
+
+		&.query-filters-label{
+			padding-left: 0;
+			background-color: transparent;
+		}
+
+		small{
+			font-size: 10px;
+			font-weight: 500;
+			color: var(--textFade);
+		}
+		span{
+			font-weight: 600;
+		}
+
+		// Label
+		&.header{
+			width: 100%;
+			background-color: transparent;
+			padding: 0;
+			font-size: 12px;
+			
+			span{
+				color: var(--textFade);
+				font-weight: 500;
+			}
+		}
+
+	}
+}
+
+
+// Map
+// .results-map{
+// 	box-sizing: border-box;
+// 	transition: 0.2s ease;
+
+// 	&.map-visible{
+// 		padding-left: 400px;
+
+// 		@media (max-width: $screenSM) {
+// 			padding-top: 30vh;
+// 			padding-left: 0;
+// 		}
+// 	}
+// 	&.map-peek{
+// 		padding-left: 50px;
+
+// 		@media (max-width: $screenSM) {
+// 			padding-top: 0;
+// 			padding-left: 0;
+// 		}
+// 	}
+
+// 	&.map-expanded{
+// 		padding-left: 400px;
+// 		@media (max-width: $screenSM) {
+// 			padding-left: 0;
+// 		}
+// 	}
+// }
+
+
+

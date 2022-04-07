@@ -12,9 +12,11 @@
 
 		<!-- USGS Headers -->
 		<div id="requiredHeaders">
-			<a href="https://usgs.gov" target="_blank" id="usgsHeader">
-				<img src="@/assets/branding/usgs-tagline.png" title="USGS Logo" alt="USGS Logo"/>
-			</a>
+			<div id="usgsHeader">
+				<a href="https://usgs.gov" target="_blank">
+					<img src="@/assets/branding/usgs-tagline.png" title="USGS Logo" alt="USGS Logo"/>
+				</a>
+			</div>
 		</div>
 
 

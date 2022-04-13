@@ -1,5 +1,12 @@
-![WiM](wimlogo.png)
+# Archived
 
+### This repo has been archived. 
+
+The app has been intergrated into the WIM Styleguide Repo at [github.com/usgs-wim/styleguide](https://github.com/USGS-WiM/Styleguide). The frame generator code specifically is located in the [/src/views/tools/Frame.vue](https://github.com/USGS-WiM/Styleguide/blob/staging/src/views/tools/Frame.vue) and [/src/views/tools/FrameView.vue](https://github.com/USGS-WiM/Styleguide/blob/staging/src/views/tools/FrameView.vue) files.
+___________________
+
+<!-- ![WiM](wimlogo.png) -->
+___________________
 
 # Frame Templates Generator
 
